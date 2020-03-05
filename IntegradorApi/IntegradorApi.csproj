@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.7.4">
       <PrivateAssets>all</PrivateAssets>
@@ -46,6 +47,7 @@
     <ProjectReference Include="..\Application\seq.Application\seq.Application.csproj" />
     <ProjectReference Include="..\Data\seq.DataAccess\seq.DataAccess.csproj" />
     <ProjectReference Include="..\Domain\seq.Domain\seq.Domain.csproj" />
+    <ProjectReference Include="..\Infra.Data\seq.Infra.Data.csproj" />
     <ProjectReference Include="..\Infra\seq.Infra\seq.Infra.csproj" />
   </ItemGroup>
 

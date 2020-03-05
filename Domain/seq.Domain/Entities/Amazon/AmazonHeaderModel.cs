@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace seq.Domain.Entities.Amazon
+namespace seq.Domain.Entities
 {
     public class AmazonHeaderModel
     {

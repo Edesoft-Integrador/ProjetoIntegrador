@@ -1,24 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using seq.Application.Arquivo;
-using seq.Application.Integrado;
-using seq.Application.Amazon;
-using seq.DataAccess.Arquivo;
-using seq.DataAccess.Integrado;
-using seq.DataAccess.Amazon;
-using seq.Domain.Interface.Application.Arquivo;
-using seq.Domain.Interface.Application.Integrado;
-using seq.Domain.Interface.Application.Amazon;
-using seq.Domain.Interface.Repository.Arquivo;
-using seq.Domain.Interface.Repository.Integrado;
-using seq.Domain.Interface.Repository.Amazon;
 using static seq.Infra.BancoAcesso.Geral;
-
+using seq.Infra.Data.Repository;
+using seq.Domain.Services;
+using Microsoft.EntityFrameworkCore;
+using seq.Infra.Data.Context;
+using seq.Domain.Interface.Services;
+using seq.Domain.Interface.Repositories;
+using seq.Applications.Services;
+using seq.Application.Interfaces;
 
 namespace IntegradorApi
 {
@@ -40,17 +34,37 @@ namespace IntegradorApi
 
             services.Configure<DbConexao>(Configuration.GetSection("ConnectionStrings"));
 
+            services.AddDbContext<WebDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IDeparaAppService, DeparaAppService>();
+            services.AddScoped<ILayoutAppService, LayoutAppService>();
+            services.AddScoped<IProcessoAppService, ProcessoAppService>();
             services.AddScoped<IIntegradoAppService, IntegradoAppService>();
             services.AddScoped<IArquivoAppService, ArquivoAppService>();
-            services.AddScoped<IAmazonAppService, AmazonAppService>();
+            services.AddScoped<IAmazonHeaderAppService, AmazonHeaderAppService>();
+            services.AddScoped<IAmazonDetalheAppService, AmazonDetalheAppService>();
+            services.AddScoped<IAmazonLUFTAppService, AmazonLUFTAppService>();
+            services.AddScoped<IAmazonSellersAppService, AmazonSellersAppService>();
 
+            services.AddScoped<IDeparaService, DeparaService>();
+            services.AddScoped<ILayoutService, LayoutService>();
+            services.AddScoped<IProcessoService, ProcessoService>();
+            services.AddScoped<IIntegradoService, IntegradoService>();
+            services.AddScoped<IArquivoService, ArquivoService>();
+            services.AddScoped<IAmazonHeaderService, AmazonHeaderService>();
+            services.AddScoped<IAmazonDetalheService, AmazonDetalheService>();
+            services.AddScoped<IAmazonLUFTService, AmazonLUFTService>();
+            services.AddScoped<IAmazonSellersService, AmazonSellersService>();
+
+            services.AddScoped<IDeparaRepository, DeparaRepository>();
+            services.AddScoped<ILayoutRepository, LayoutRepository>();
+            services.AddScoped<IProcessoRepository, ProcessoRepository>();
             services.AddScoped<IIntegradoRepository, IntegradoRepository>();
-            services.AddScoped<IArquivoRepository, ArquivoRepository>();
-            services.AddScoped<IAmazonRepository, AmazonRepository>();
-
+            services.AddScoped<IArquivorepository, ArquivoRepository>();
             services.AddScoped<IAmazonHeaderRepository, AmazonHeaderRepository>();
             services.AddScoped<IAmazonDetalheRepository, AmazonDetalheRepository>();
-
+            services.AddScoped<IAmazonLUFTRepository, AmazonLUFTRepository>();
+            services.AddScoped<IAmazonSellersRepository, AmazonSellersRepository>();
 
             services.AddControllersWithViews();
 

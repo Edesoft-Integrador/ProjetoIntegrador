@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Compile Remove="Entities\Amazon\AmazonSELExpeditedModel.cs" />
-    <Compile Remove="Entities\Amazon\AmazonSELLERSModel.cs" />
     <Compile Remove="Entities\Amazon\AmazonSELStdModel.cs" />
   </ItemGroup>
 

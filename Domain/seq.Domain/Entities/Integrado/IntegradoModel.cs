@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace seq.Domain.Entities.Integrado
-{
+namespace seq.Domain.Entities
+{ 
     public class IntegradoModel : IIntegradoModel
     {
         public long? IntegradoId { get; set;}
