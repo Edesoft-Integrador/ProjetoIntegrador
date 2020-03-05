@@ -1,11 +1,9 @@
-﻿using seq.Domain.Entities.Amazon;
-using seq.Domain.Interface.Repository.Amazon;
+﻿using seq.Domain.Entities;
+using seq.Domain.Interface.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace seq.Processo.Amazon
@@ -25,11 +23,11 @@ namespace seq.Processo.Amazon
             try
             {
 
-                XmlSerializer ser = new XmlSerializer(typeof(AmazonCELLERSModel.transmission));
-                AmazonCELLERSModel.transmission lista;
+                XmlSerializer ser = new XmlSerializer(typeof(AmazonSellersModel.transmission));
+                AmazonSellersModel.transmission lista;
                 using (Stream reader = new FileStream(value, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
-                    lista = (AmazonCELLERSModel.transmission)ser.Deserialize(reader);
+                    lista = (AmazonSellersModel.transmission)ser.Deserialize(reader);
                 }
 
                 AmazonHeaderModel amazonHeaderModel = new AmazonHeaderModel();
@@ -66,7 +64,7 @@ namespace seq.Processo.Amazon
                     Campo027 = "countryName"
                 };
 
-                var headerId = await _contextHeader.Insert(amazonHeaderModel);
+                var headerId = await _contextHeader.AddAsync(amazonHeaderModel);
 
                 amazonHeaderModel.Arquivo = headerId;
                 amazonHeaderModel.Linha = 1;
@@ -102,7 +100,7 @@ namespace seq.Processo.Amazon
                 amazonHeaderModel.Campo026 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString();
                 amazonHeaderModel.Campo027 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryName.ToString();
 
-                headerId = await _contextHeader.Insert(amazonHeaderModel);
+                headerId = await _contextHeader.AddAsync(amazonHeaderModel);
 
                 long detalheId = 0;
 
@@ -198,7 +196,7 @@ namespace seq.Processo.Amazon
                     Campo083 = "manifestDetail.shipmentPackageInfo.shipmentPackageItemDetail.countryOfOrigin",
 
                 });
-                detalheId = await _contextDetalhe.Insert(_amazonDetalheModel[0]);
+                detalheId = await _contextDetalhe.AddAsync(_amazonDetalheModel[0]);
 
                 foreach (var item in lista.message.amazonManifest.manifestDetail)
                 {
@@ -289,7 +287,7 @@ namespace seq.Processo.Amazon
                         _amazonDetalheModel[0].Campo081 = subitem.harmonizedTariffDescription;
                         _amazonDetalheModel[0].Campo082 = subitem.countryOfOrigin;
 
-                        detalheId = await _contextDetalhe.Insert(_amazonDetalheModel[0]);
+                        detalheId = await _contextDetalhe.AddAsync(_amazonDetalheModel[0]);
                     }
                 }
             }

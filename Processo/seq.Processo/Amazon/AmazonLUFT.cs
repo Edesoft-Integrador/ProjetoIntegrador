@@ -1,14 +1,9 @@
-using seq.Domain.Entities.Amazon;
-using seq.Domain.Interface.Repository.Amazon;
+using seq.Domain.Entities;
+using seq.Domain.Interface.Repositories;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Serialization;
-using static seq.Domain.Entities.Amazon.AmazonLUFTModel;
 
 namespace seq.Processo.Amazon
 {
@@ -47,7 +42,7 @@ namespace seq.Processo.Amazon
                     Campo008 = "cep"
                 };
 
-                var headerId = await _contextHeader.Insert(amazonHeaderModel);
+                var headerId = await _contextHeader.AddAsync(amazonHeaderModel);
 
                 var amazonHeaderModel1 = new AmazonHeaderModel()
                 {
@@ -64,7 +59,7 @@ namespace seq.Processo.Amazon
                     Campo008 = "06423080",
                 };
 
-                headerId = await _contextHeader.Insert(amazonHeaderModel1);
+                headerId = await _contextHeader.AddAsync(amazonHeaderModel1);
 
                 AmazonDetalheModel amazonDetalheModel = new AmazonDetalheModel()
                 {
@@ -132,7 +127,7 @@ namespace seq.Processo.Amazon
                     Campo060 = "prodPredominante.CFOP",
                     Campo061 = "prodPredominante.vProd",
                 };
-                var detalheId = await _contextDetalhe.Insert(amazonDetalheModel);
+                var detalheId = await _contextDetalhe.AddAsync(amazonDetalheModel);
 
                 foreach (var subitem in lista.message.TrackingInfo.coletaDetalhe.notaFiscal)
                 {
@@ -202,8 +197,8 @@ namespace seq.Processo.Amazon
                         Campo060 = subitem.prodPredominante.CFOP.ToString(),
                         Campo061 = subitem.prodPredominante.vProd.ToString(),
                     };
-                    await _contextDetalhe.Insert(detalhes);
-                }; 
+                    await _contextDetalhe.AddAsync(detalhes);
+                };
             }
             catch (Exception e)
             {

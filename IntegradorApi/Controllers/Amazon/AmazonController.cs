@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using seq.Domain.Interface.Application.Amazon;
+using seq.Application.Interfaces;
 
 namespace IntegradorApi.Controllers.Amazon
 {
@@ -12,9 +8,9 @@ namespace IntegradorApi.Controllers.Amazon
     [ApiController]
     public class AmazonController : ControllerBase
     {
-        private readonly IAmazonAppService _context;
+        private readonly IAmazonHeaderAppService _context;
 
-        public AmazonController(IAmazonAppService context)
+        public AmazonController(IAmazonHeaderAppService context)
         {
             _context = context;
 
@@ -37,7 +33,7 @@ namespace IntegradorApi.Controllers.Amazon
         [HttpPost("AmazonPost")]
         public void AmazonPost(string value)
         {
-            _context.Processa(value);
+          //  _context.Processa(value);
         }
 
         // PUT: api/Amazon/5

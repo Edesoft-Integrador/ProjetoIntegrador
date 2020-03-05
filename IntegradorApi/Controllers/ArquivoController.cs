@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using seq.Domain.Entities.Arquivo;
-using seq.Domain.Interface.Application.Arquivo;
+using seq.Application.Interfaces;
+using seq.Domain.Entities;
 
 namespace IntegradorApi.Controllers
 {
@@ -31,13 +28,7 @@ namespace IntegradorApi.Controllers
         [HttpGet("Search")]
         public async Task<IEnumerable<ArquivoModel>> Search(long id, string Descricao)
         {
-            var arquivoModel = new ArquivoModel()
-            {
-                Id = id,
-                Descricao = Descricao
-            };
-            var retorno = await _context.Search(arquivoModel);
-            return retorno.ToArray();
+            return new List<ArquivoModel>(); // await _context.GetByIDAsync((int)id);
         }
 
         // GET: api/Arquivo/5
@@ -51,12 +42,12 @@ namespace IntegradorApi.Controllers
         [HttpPost("Post")]
         public async Task<IActionResult> Post(ArquivoModel entity)
         {
-            ArquivoModel arquivoModel = new ArquivoModel()
-            {
-                Descricao = entity.Descricao
-            };
-            var retorno = await _context.Insert(arquivoModel);
-            return null;
+            //ArquivoModel arquivoModel = new ArquivoModel()
+            //{
+            //    Descricao = entity.Descricao
+            //};
+
+           return Ok(await _context.AddAsync(entity));
         }
 
         // PUT: api/Arquivo/5

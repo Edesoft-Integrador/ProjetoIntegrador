@@ -1,10 +1,7 @@
 ﻿using seq.Domain.Interface.Entities.Arquivo;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
-namespace seq.Domain.Entities.Arquivo
+namespace seq.Domain.Entities
 {
     public class ArquivoModel : IArquivoModel
     {

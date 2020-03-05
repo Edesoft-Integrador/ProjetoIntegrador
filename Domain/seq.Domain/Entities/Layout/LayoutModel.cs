@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace seq.Domain.Entities.Layout
+namespace seq.Domain.Entities
 {
     public class LayoutModel : ILayoutModel
     {

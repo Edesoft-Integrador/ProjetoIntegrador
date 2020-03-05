@@ -2,347 +2,3123 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace seq.Domain.Entities.Amazon
+namespace seq.Domain.Entities
 {
-    public class AmazonSELLERSModel
+    public class AmazonSellersModel
     {
 
-        public class Rootobject
+        // OBSERVAÇÃO: o código gerado pode exigir pelo menos .NET Framework 4.5 ou .NET Core/Standard 2.0.
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
+        public partial class transmission
         {
-            public Transmission transmission { get; set; }
+
+            private transmissionMessage messageField;
+
+            private string sendingPartyIDField;
+
+            private string receivingPartyIDField;
+
+            private System.DateTime transmissionCreationDateField;
+
+            private decimal transmissionSchemaVersionNumberField;
+
+            /// <remarks/>
+            public transmissionMessage message
+            {
+                get
+                {
+                    return this.messageField;
+                }
+                set
+                {
+                    this.messageField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string sendingPartyID
+            {
+                get
+                {
+                    return this.sendingPartyIDField;
+                }
+                set
+                {
+                    this.sendingPartyIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string receivingPartyID
+            {
+                get
+                {
+                    return this.receivingPartyIDField;
+                }
+                set
+                {
+                    this.receivingPartyIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public System.DateTime transmissionCreationDate
+            {
+                get
+                {
+                    return this.transmissionCreationDateField;
+                }
+                set
+                {
+                    this.transmissionCreationDateField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public decimal transmissionSchemaVersionNumber
+            {
+                get
+                {
+                    return this.transmissionSchemaVersionNumberField;
+                }
+                set
+                {
+                    this.transmissionSchemaVersionNumberField = value;
+                }
+            }
         }
 
-        public class Transmission
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessage
         {
-            public Message message { get; set; }
+
+            private transmissionMessageAmazonManifest amazonManifestField;
+
+            private string messageTypeField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifest amazonManifest
+            {
+                get
+                {
+                    return this.amazonManifestField;
+                }
+                set
+                {
+                    this.amazonManifestField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string messageType
+            {
+                get
+                {
+                    return this.messageTypeField;
+                }
+                set
+                {
+                    this.messageTypeField = value;
+                }
+            }
         }
 
-        public class Message
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifest
         {
-            public string messageType { get; set; }
-            public Amazonmanifest amazonManifest { get; set; }
+
+            private transmissionMessageAmazonManifestManifestHeader manifestHeaderField;
+
+            private transmissionMessageAmazonManifestShipmentDetail[] manifestDetailField;
+
+            private transmissionMessageAmazonManifestManifestSummary manifestSummaryField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestHeader manifestHeader
+            {
+                get
+                {
+                    return this.manifestHeaderField;
+                }
+                set
+                {
+                    this.manifestHeaderField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlArrayItemAttribute("shipmentDetail", IsNullable = false)]
+            public transmissionMessageAmazonManifestShipmentDetail[] manifestDetail
+            {
+                get
+                {
+                    return this.manifestDetailField;
+                }
+                set
+                {
+                    this.manifestDetailField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummary manifestSummary
+            {
+                get
+                {
+                    return this.manifestSummaryField;
+                }
+                set
+                {
+                    this.manifestSummaryField = value;
+                }
+            }
         }
 
-        public class Amazonmanifest
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestHeader
         {
-            public Manifestheader manifestHeader { get; set; }
-            public Manifestdetail manifestDetail { get; set; }
-            public Manifestsummary manifestSummary { get; set; }
+
+            private string warehouseLocationIDField;
+
+            private System.DateTime manifestCreateDateTimeField;
+
+            private string loadReferenceIDField;
+
+            private string trailerNameField;
+
+            private string carrierInternalIDField;
+
+            private transmissionMessageAmazonManifestManifestHeaderShipmentMethod[] shipmentMethodField;
+
+            private ulong manifestNumberField;
+
+            private string carrierAccountIDField;
+
+            private object carrierManifestIDField;
+
+            private System.DateTime shipmentDateField;
+
+            private string currencyCodeField;
+
+            private transmissionMessageAmazonManifestManifestHeaderShipFromAddress shipFromAddressField;
+
+            private transmissionMessageAmazonManifestManifestHeaderShipperInformation shipperInformationField;
+
+            private string prepaidCollectField;
+
+            /// <remarks/>
+            public string warehouseLocationID
+            {
+                get
+                {
+                    return this.warehouseLocationIDField;
+                }
+                set
+                {
+                    this.warehouseLocationIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public System.DateTime manifestCreateDateTime
+            {
+                get
+                {
+                    return this.manifestCreateDateTimeField;
+                }
+                set
+                {
+                    this.manifestCreateDateTimeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string loadReferenceID
+            {
+                get
+                {
+                    return this.loadReferenceIDField;
+                }
+                set
+                {
+                    this.loadReferenceIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string trailerName
+            {
+                get
+                {
+                    return this.trailerNameField;
+                }
+                set
+                {
+                    this.trailerNameField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string carrierInternalID
+            {
+                get
+                {
+                    return this.carrierInternalIDField;
+                }
+                set
+                {
+                    this.carrierInternalIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute("shipmentMethod")]
+            public transmissionMessageAmazonManifestManifestHeaderShipmentMethod[] shipmentMethod
+            {
+                get
+                {
+                    return this.shipmentMethodField;
+                }
+                set
+                {
+                    this.shipmentMethodField = value;
+                }
+            }
+
+            /// <remarks/>
+            public ulong manifestNumber
+            {
+                get
+                {
+                    return this.manifestNumberField;
+                }
+                set
+                {
+                    this.manifestNumberField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string carrierAccountID
+            {
+                get
+                {
+                    return this.carrierAccountIDField;
+                }
+                set
+                {
+                    this.carrierAccountIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public object carrierManifestID
+            {
+                get
+                {
+                    return this.carrierManifestIDField;
+                }
+                set
+                {
+                    this.carrierManifestIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public System.DateTime shipmentDate
+            {
+                get
+                {
+                    return this.shipmentDateField;
+                }
+                set
+                {
+                    this.shipmentDateField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string currencyCode
+            {
+                get
+                {
+                    return this.currencyCodeField;
+                }
+                set
+                {
+                    this.currencyCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestHeaderShipFromAddress shipFromAddress
+            {
+                get
+                {
+                    return this.shipFromAddressField;
+                }
+                set
+                {
+                    this.shipFromAddressField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestHeaderShipperInformation shipperInformation
+            {
+                get
+                {
+                    return this.shipperInformationField;
+                }
+                set
+                {
+                    this.shipperInformationField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string prepaidCollect
+            {
+                get
+                {
+                    return this.prepaidCollectField;
+                }
+                set
+                {
+                    this.prepaidCollectField = value;
+                }
+            }
         }
 
-        public class Manifestheader
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestHeaderShipmentMethod
         {
-            public string warehouseLocationID { get; set; }
-            public DateTime manifestCreateDateTime { get; set; }
-            public string loadReferenceID { get; set; }
-            public string trailerName { get; set; }
-            public string carrierInternalID { get; set; }
-            public Shipmentmethod[] shipmentMethod { get; set; }
-            public string manifestNumber { get; set; }
-            public string carrierAccountID { get; set; }
-            public object carrierManifestID { get; set; }
-            public DateTime shipmentDate { get; set; }
-            public string currencyCode { get; set; }
-            public Shipfromaddress shipFromAddress { get; set; }
-            public Shipperinformation shipperInformation { get; set; }
-            public string prepaidCollect { get; set; }
+
+            private string amazonTechnicalNameField;
+
+            /// <remarks/>
+            public string amazonTechnicalName
+            {
+                get
+                {
+                    return this.amazonTechnicalNameField;
+                }
+                set
+                {
+                    this.amazonTechnicalNameField = value;
+                }
+            }
         }
 
-        public class Shipfromaddress
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestHeaderShipFromAddress
         {
-            public string AddressType { get; set; }
-            public string name { get; set; }
-            public string addressLine1 { get; set; }
-            public string addressLine2 { get; set; }
-            public string city { get; set; }
-            public Statechoice stateChoice { get; set; }
-            public string zip { get; set; }
-            public string countryCode { get; set; }
-            public string countryName { get; set; }
+
+            private string nameField;
+
+            private string addressLine1Field;
+
+            private string addressLine2Field;
+
+            private string cityField;
+
+            private transmissionMessageAmazonManifestManifestHeaderShipFromAddressStateChoice stateChoiceField;
+
+            private string zipField;
+
+            private string countryCodeField;
+
+            private string countryNameField;
+
+            private string addressTypeField;
+
+            /// <remarks/>
+            public string name
+            {
+                get
+                {
+                    return this.nameField;
+                }
+                set
+                {
+                    this.nameField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string addressLine1
+            {
+                get
+                {
+                    return this.addressLine1Field;
+                }
+                set
+                {
+                    this.addressLine1Field = value;
+                }
+            }
+
+            /// <remarks/>
+            public string addressLine2
+            {
+                get
+                {
+                    return this.addressLine2Field;
+                }
+                set
+                {
+                    this.addressLine2Field = value;
+                }
+            }
+
+            /// <remarks/>
+            public string city
+            {
+                get
+                {
+                    return this.cityField;
+                }
+                set
+                {
+                    this.cityField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestHeaderShipFromAddressStateChoice stateChoice
+            {
+                get
+                {
+                    return this.stateChoiceField;
+                }
+                set
+                {
+                    this.stateChoiceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string zip
+            {
+                get
+                {
+                    return this.zipField;
+                }
+                set
+                {
+                    this.zipField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string countryCode
+            {
+                get
+                {
+                    return this.countryCodeField;
+                }
+                set
+                {
+                    this.countryCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string countryName
+            {
+                get
+                {
+                    return this.countryNameField;
+                }
+                set
+                {
+                    this.countryNameField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string AddressType
+            {
+                get
+                {
+                    return this.addressTypeField;
+                }
+                set
+                {
+                    this.addressTypeField = value;
+                }
+            }
         }
 
-        public class Statechoice
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestHeaderShipFromAddressStateChoice
         {
-            public string stateProvince { get; set; }
+
+            private string stateProvinceField;
+
+            /// <remarks/>
+            public string stateProvince
+            {
+                get
+                {
+                    return this.stateProvinceField;
+                }
+                set
+                {
+                    this.stateProvinceField = value;
+                }
+            }
         }
 
-        public class Shipperinformation
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestHeaderShipperInformation
         {
-            public string amazonTaxID { get; set; }
+
+            private string amazonTaxIDField;
+
+            /// <remarks/>
+            public string amazonTaxID
+            {
+                get
+                {
+                    return this.amazonTaxIDField;
+                }
+                set
+                {
+                    this.amazonTaxIDField = value;
+                }
+            }
         }
 
-        public class Shipmentmethod
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetail
         {
-            public string amazonTechnicalName { get; set; }
+
+            private string customerOrderNumberField;
+
+            private transmissionMessageAmazonManifestShipmentDetailConsigneeAddress consigneeAddressField;
+
+            private string isExportChargePrepaidField;
+
+            private ulong addressIdField;
+
+            private transmissionMessageAmazonManifestShipmentDetailBrNFe brNFeField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfo shipmentCostInfoField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfo shipmentPackageInfoField;
+
+            private string reasonForExportField;
+
+            /// <remarks/>
+            public string customerOrderNumber
+            {
+                get
+                {
+                    return this.customerOrderNumberField;
+                }
+                set
+                {
+                    this.customerOrderNumberField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailConsigneeAddress consigneeAddress
+            {
+                get
+                {
+                    return this.consigneeAddressField;
+                }
+                set
+                {
+                    this.consigneeAddressField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string isExportChargePrepaid
+            {
+                get
+                {
+                    return this.isExportChargePrepaidField;
+                }
+                set
+                {
+                    this.isExportChargePrepaidField = value;
+                }
+            }
+
+            /// <remarks/>
+            public ulong addressId
+            {
+                get
+                {
+                    return this.addressIdField;
+                }
+                set
+                {
+                    this.addressIdField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailBrNFe brNFe
+            {
+                get
+                {
+                    return this.brNFeField;
+                }
+                set
+                {
+                    this.brNFeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfo shipmentCostInfo
+            {
+                get
+                {
+                    return this.shipmentCostInfoField;
+                }
+                set
+                {
+                    this.shipmentCostInfoField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfo shipmentPackageInfo
+            {
+                get
+                {
+                    return this.shipmentPackageInfoField;
+                }
+                set
+                {
+                    this.shipmentPackageInfoField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string reasonForExport
+            {
+                get
+                {
+                    return this.reasonForExportField;
+                }
+                set
+                {
+                    this.reasonForExportField = value;
+                }
+            }
         }
 
-        public class Manifestdetail
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailConsigneeAddress
         {
-            public Shipmentdetail[] shipmentDetail { get; set; }
+
+            private string nameField;
+
+            private string addressLine1Field;
+
+            private string addressLine2Field;
+
+            private string cityField;
+
+            private transmissionMessageAmazonManifestShipmentDetailConsigneeAddressStateChoice stateChoiceField;
+
+            private string zipField;
+
+            private string countryCodeField;
+
+            private string countryNameField;
+
+            private string contactPhoneField;
+
+            private string addressTypeField;
+
+            /// <remarks/>
+            public string name
+            {
+                get
+                {
+                    return this.nameField;
+                }
+                set
+                {
+                    this.nameField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string addressLine1
+            {
+                get
+                {
+                    return this.addressLine1Field;
+                }
+                set
+                {
+                    this.addressLine1Field = value;
+                }
+            }
+
+            /// <remarks/>
+            public string addressLine2
+            {
+                get
+                {
+                    return this.addressLine2Field;
+                }
+                set
+                {
+                    this.addressLine2Field = value;
+                }
+            }
+
+            /// <remarks/>
+            public string city
+            {
+                get
+                {
+                    return this.cityField;
+                }
+                set
+                {
+                    this.cityField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailConsigneeAddressStateChoice stateChoice
+            {
+                get
+                {
+                    return this.stateChoiceField;
+                }
+                set
+                {
+                    this.stateChoiceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string zip
+            {
+                get
+                {
+                    return this.zipField;
+                }
+                set
+                {
+                    this.zipField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string countryCode
+            {
+                get
+                {
+                    return this.countryCodeField;
+                }
+                set
+                {
+                    this.countryCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string countryName
+            {
+                get
+                {
+                    return this.countryNameField;
+                }
+                set
+                {
+                    this.countryNameField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string contactPhone
+            {
+                get
+                {
+                    return this.contactPhoneField;
+                }
+                set
+                {
+                    this.contactPhoneField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string AddressType
+            {
+                get
+                {
+                    return this.addressTypeField;
+                }
+                set
+                {
+                    this.addressTypeField = value;
+                }
+            }
         }
 
-        public class Shipmentdetail
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailConsigneeAddressStateChoice
         {
-            public string customerOrderNumber { get; set; }
-            public Consigneeaddress consigneeAddress { get; set; }
-            public string isExportChargePrepaid { get; set; }
-            public string addressId { get; set; }
-            public Brnfe brNFe { get; set; }
-            public Shipmentcostinfo shipmentCostInfo { get; set; }
-            public Shipmentpackageinfo shipmentPackageInfo { get; set; }
-            public string reasonForExport { get; set; }
+
+            private string stateProvinceField;
+
+            /// <remarks/>
+            public string stateProvince
+            {
+                get
+                {
+                    return this.stateProvinceField;
+                }
+                set
+                {
+                    this.stateProvinceField = value;
+                }
+            }
         }
 
-        public class Consigneeaddress
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailBrNFe
         {
-            public string AddressType { get; set; }
-            public string name { get; set; }
-            public string addressLine1 { get; set; }
-            public string addressLine2 { get; set; }
-            public string city { get; set; }
-            public Statechoice1 stateChoice { get; set; }
-            public string zip { get; set; }
-            public string countryCode { get; set; }
-            public string countryName { get; set; }
-            public string contactPhone { get; set; }
+
+            private ulong sellerCnpjField;
+
+            private ulong customerCnpjCpfField;
+
+            private uint nfeNumberField;
+
+            private byte nfeSerieField;
+
+            private string nfeAccessCodeField;
+
+            private System.DateTime nfeIssuanceDateField;
+
+            private transmissionMessageAmazonManifestShipmentDetailBrNFeNfeAddress nfeAddressField;
+
+            private decimal nfeICMSSTAmountField;
+
+            private decimal nfeICMSAmountField;
+
+            private string nfeProductsTotalValueField;
+
+            private string nfeTotalValueField;
+
+            /// <remarks/>
+            public ulong sellerCnpj
+            {
+                get
+                {
+                    return this.sellerCnpjField;
+                }
+                set
+                {
+                    this.sellerCnpjField = value;
+                }
+            }
+
+            /// <remarks/>
+            public ulong customerCnpjCpf
+            {
+                get
+                {
+                    return this.customerCnpjCpfField;
+                }
+                set
+                {
+                    this.customerCnpjCpfField = value;
+                }
+            }
+
+            /// <remarks/>
+            public uint nfeNumber
+            {
+                get
+                {
+                    return this.nfeNumberField;
+                }
+                set
+                {
+                    this.nfeNumberField = value;
+                }
+            }
+
+            /// <remarks/>
+            public byte nfeSerie
+            {
+                get
+                {
+                    return this.nfeSerieField;
+                }
+                set
+                {
+                    this.nfeSerieField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
+            public string nfeAccessCode
+            {
+                get
+                {
+                    return this.nfeAccessCodeField;
+                }
+                set
+                {
+                    this.nfeAccessCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public System.DateTime nfeIssuanceDate
+            {
+                get
+                {
+                    return this.nfeIssuanceDateField;
+                }
+                set
+                {
+                    this.nfeIssuanceDateField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailBrNFeNfeAddress nfeAddress
+            {
+                get
+                {
+                    return this.nfeAddressField;
+                }
+                set
+                {
+                    this.nfeAddressField = value;
+                }
+            }
+
+            /// <remarks/>
+            public decimal nfeICMSSTAmount
+            {
+                get
+                {
+                    return this.nfeICMSSTAmountField;
+                }
+                set
+                {
+                    this.nfeICMSSTAmountField = value;
+                }
+            }
+
+            /// <remarks/>
+            public decimal nfeICMSAmount
+            {
+                get
+                {
+                    return this.nfeICMSAmountField;
+                }
+                set
+                {
+                    this.nfeICMSAmountField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string nfeProductsTotalValue
+            {
+                get
+                {
+                    return this.nfeProductsTotalValueField;
+                }
+                set
+                {
+                    this.nfeProductsTotalValueField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string nfeTotalValue
+            {
+                get
+                {
+                    return this.nfeTotalValueField;
+                }
+                set
+                {
+                    this.nfeTotalValueField = value;
+                }
+            }
         }
 
-        public class Statechoice1
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailBrNFeNfeAddress
         {
-            public string stateProvince { get; set; }
+
+            private string streetField;
+
+            private string numberField;
+
+            private string complementField;
+
+            private string boroughField;
+
+            private uint zipcodeField;
+
+            private string cityField;
+
+            private string stateField;
+
+            private ulong phoneField;
+
+            /// <remarks/>
+            public string Street
+            {
+                get
+                {
+                    return this.streetField;
+                }
+                set
+                {
+                    this.streetField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string number
+            {
+                get
+                {
+                    return this.numberField;
+                }
+                set
+                {
+                    this.numberField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string complement
+            {
+                get
+                {
+                    return this.complementField;
+                }
+                set
+                {
+                    this.complementField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string borough
+            {
+                get
+                {
+                    return this.boroughField;
+                }
+                set
+                {
+                    this.boroughField = value;
+                }
+            }
+
+            /// <remarks/>
+            public uint zipcode
+            {
+                get
+                {
+                    return this.zipcodeField;
+                }
+                set
+                {
+                    this.zipcodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string city
+            {
+                get
+                {
+                    return this.cityField;
+                }
+                set
+                {
+                    this.cityField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string state
+            {
+                get
+                {
+                    return this.stateField;
+                }
+                set
+                {
+                    this.stateField = value;
+                }
+            }
+
+            /// <remarks/>
+            public ulong phone
+            {
+                get
+                {
+                    return this.phoneField;
+                }
+                set
+                {
+                    this.phoneField = value;
+                }
+            }
         }
 
-        public class Brnfe
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfo
         {
-            public string sellerCnpj { get; set; }
-            public string customerCnpjCpf { get; set; }
-            public string nfeNumber { get; set; }
-            public string nfeSerie { get; set; }
-            public string nfeAccessCode { get; set; }
-            public DateTime nfeIssuanceDate { get; set; }
-            public Nfeaddress nfeAddress { get; set; }
-            public string nfeICMSSTAmount { get; set; }
-            public string nfeICMSAmount { get; set; }
-            public string nfeProductsTotalValue { get; set; }
-            public string nfeTotalValue { get; set; }
+
+            private string termsOfSaleField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoAmazonFreightCost amazonFreightCostField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoValueOfGoods valueOfGoodsField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoCIF cIFField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoConsigneeFreightCharge consigneeFreightChargeField;
+
+            /// <remarks/>
+            public string termsOfSale
+            {
+                get
+                {
+                    return this.termsOfSaleField;
+                }
+                set
+                {
+                    this.termsOfSaleField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoAmazonFreightCost amazonFreightCost
+            {
+                get
+                {
+                    return this.amazonFreightCostField;
+                }
+                set
+                {
+                    this.amazonFreightCostField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoValueOfGoods valueOfGoods
+            {
+                get
+                {
+                    return this.valueOfGoodsField;
+                }
+                set
+                {
+                    this.valueOfGoodsField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoCIF CIF
+            {
+                get
+                {
+                    return this.cIFField;
+                }
+                set
+                {
+                    this.cIFField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoConsigneeFreightCharge consigneeFreightCharge
+            {
+                get
+                {
+                    return this.consigneeFreightChargeField;
+                }
+                set
+                {
+                    this.consigneeFreightChargeField = value;
+                }
+            }
         }
 
-        public class Nfeaddress
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoAmazonFreightCost
         {
-            public string Street { get; set; }
-            public string number { get; set; }
-            public string complement { get; set; }
-            public string borough { get; set; }
-            public string zipcode { get; set; }
-            public string city { get; set; }
-            public string state { get; set; }
-            public string phone { get; set; }
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoAmazonFreightCostMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoAmazonFreightCostMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
         }
 
-        public class Shipmentcostinfo
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoAmazonFreightCostMonetaryAmount
         {
-            public string termsOfSale { get; set; }
-            public Amazonfreightcost amazonFreightCost { get; set; }
-            public Valueofgoods valueOfGoods { get; set; }
-            public CIF CIF { get; set; }
-            public Consigneefreightcharge consigneeFreightCharge { get; set; }
+
+            private string currencyISOCodeField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Amazonfreightcost
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoValueOfGoods
         {
-            public string chargeOrAllowance { get; set; }
-            public Monetaryamount monetaryAmount { get; set; }
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoValueOfGoodsMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoValueOfGoodsMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
         }
 
-        public class Monetaryamount
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoValueOfGoodsMonetaryAmount
         {
-            public string currencyISOCode { get; set; }
-            public string text { get; set; }
+
+            private string currencyISOCodeField;
+
+            private string valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public string Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Valueofgoods
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoCIF
         {
-            public string chargeOrAllowance { get; set; }
-            public Monetaryamount1 monetaryAmount { get; set; }
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoCIFMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoCIFMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
         }
 
-        public class Monetaryamount1
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoCIFMonetaryAmount
         {
-            public string currencyISOCode { get; set; }
-            public string text { get; set; }
+
+            private string currencyISOCodeField;
+
+            private string valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public string Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class CIF
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoConsigneeFreightCharge
         {
-            public string chargeOrAllowance { get; set; }
-            public Monetaryamount2 monetaryAmount { get; set; }
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoConsigneeFreightChargeMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoConsigneeFreightChargeMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
         }
 
-        public class Monetaryamount2
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentCostInfoConsigneeFreightChargeMonetaryAmount
         {
-            public string currencyISOCode { get; set; }
-            public string text { get; set; }
+
+            private string currencyISOCodeField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Consigneefreightcharge
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfo
         {
-            public string chargeOrAllowance { get; set; }
-            public Monetaryamount3 monetaryAmount { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoCartonID cartonIDField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoPackageShipmentMethod packageShipmentMethodField;
+
+            private string shipZoneField;
+
+            private string shipSortField;
+
+            private System.DateTime commercialInvoiceDateField;
+
+            private System.DateTime scheduledDeliveryDateField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDeclaredGrossWeight shipmentPackageDeclaredGrossWeightField;
+
+            private string shipmentPackageDimWtCalcMethodField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageActualGrossWeight shipmentPackageActualGrossWeightField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensions shipmentPackageDimensionsField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetail[] shipmentPackageItemDetailField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoTotalDeclaredValue totalDeclaredValueField;
+
+            private string pkgHarmonizedTariffDescriptionField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemQuantity shipmentPackageItemQuantityField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoCartonID cartonID
+            {
+                get
+                {
+                    return this.cartonIDField;
+                }
+                set
+                {
+                    this.cartonIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoPackageShipmentMethod packageShipmentMethod
+            {
+                get
+                {
+                    return this.packageShipmentMethodField;
+                }
+                set
+                {
+                    this.packageShipmentMethodField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string shipZone
+            {
+                get
+                {
+                    return this.shipZoneField;
+                }
+                set
+                {
+                    this.shipZoneField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string shipSort
+            {
+                get
+                {
+                    return this.shipSortField;
+                }
+                set
+                {
+                    this.shipSortField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(DataType = "date")]
+            public System.DateTime commercialInvoiceDate
+            {
+                get
+                {
+                    return this.commercialInvoiceDateField;
+                }
+                set
+                {
+                    this.commercialInvoiceDateField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(DataType = "date")]
+            public System.DateTime scheduledDeliveryDate
+            {
+                get
+                {
+                    return this.scheduledDeliveryDateField;
+                }
+                set
+                {
+                    this.scheduledDeliveryDateField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDeclaredGrossWeight shipmentPackageDeclaredGrossWeight
+            {
+                get
+                {
+                    return this.shipmentPackageDeclaredGrossWeightField;
+                }
+                set
+                {
+                    this.shipmentPackageDeclaredGrossWeightField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string shipmentPackageDimWtCalcMethod
+            {
+                get
+                {
+                    return this.shipmentPackageDimWtCalcMethodField;
+                }
+                set
+                {
+                    this.shipmentPackageDimWtCalcMethodField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageActualGrossWeight shipmentPackageActualGrossWeight
+            {
+                get
+                {
+                    return this.shipmentPackageActualGrossWeightField;
+                }
+                set
+                {
+                    this.shipmentPackageActualGrossWeightField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensions shipmentPackageDimensions
+            {
+                get
+                {
+                    return this.shipmentPackageDimensionsField;
+                }
+                set
+                {
+                    this.shipmentPackageDimensionsField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute("shipmentPackageItemDetail")]
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetail[] shipmentPackageItemDetail
+            {
+                get
+                {
+                    return this.shipmentPackageItemDetailField;
+                }
+                set
+                {
+                    this.shipmentPackageItemDetailField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoTotalDeclaredValue totalDeclaredValue
+            {
+                get
+                {
+                    return this.totalDeclaredValueField;
+                }
+                set
+                {
+                    this.totalDeclaredValueField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string pkgHarmonizedTariffDescription
+            {
+                get
+                {
+                    return this.pkgHarmonizedTariffDescriptionField;
+                }
+                set
+                {
+                    this.pkgHarmonizedTariffDescriptionField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemQuantity shipmentPackageItemQuantity
+            {
+                get
+                {
+                    return this.shipmentPackageItemQuantityField;
+                }
+                set
+                {
+                    this.shipmentPackageItemQuantityField = value;
+                }
+            }
         }
 
-        public class Monetaryamount3
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoCartonID
         {
-            public string currencyISOCode { get; set; }
-            public string text { get; set; }
+
+            private string amazonBarCodeField;
+
+            private string encryptedShipmentIDField;
+
+            private byte packageIDField;
+
+            private string trackingIDField;
+
+            /// <remarks/>
+            public string amazonBarCode
+            {
+                get
+                {
+                    return this.amazonBarCodeField;
+                }
+                set
+                {
+                    this.amazonBarCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string encryptedShipmentID
+            {
+                get
+                {
+                    return this.encryptedShipmentIDField;
+                }
+                set
+                {
+                    this.encryptedShipmentIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public byte packageID
+            {
+                get
+                {
+                    return this.packageIDField;
+                }
+                set
+                {
+                    this.packageIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string trackingID
+            {
+                get
+                {
+                    return this.trackingIDField;
+                }
+                set
+                {
+                    this.trackingIDField = value;
+                }
+            }
         }
 
-        public class Shipmentpackageinfo
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoPackageShipmentMethod
         {
-            public Cartonid cartonID { get; set; }
-            public Packageshipmentmethod packageShipmentMethod { get; set; }
-            public string shipZone { get; set; }
-            public string shipSort { get; set; }
-            public string commercialInvoiceDate { get; set; }
-            public string scheduledDeliveryDate { get; set; }
-            public Shipmentpackagedeclaredgrossweight shipmentPackageDeclaredGrossWeight { get; set; }
-            public string shipmentPackageDimWtCalcMethod { get; set; }
-            public Shipmentpackageactualgrossweight shipmentPackageActualGrossWeight { get; set; }
-            public Shipmentpackagedimensions shipmentPackageDimensions { get; set; }
-            public object shipmentPackageItemDetail { get; set; }
-            public Totaldeclaredvalue totalDeclaredValue { get; set; }
-            public string pkgHarmonizedTariffDescription { get; set; }
-            public Shipmentpackageitemquantity shipmentPackageItemQuantity { get; set; }
+
+            private string amazonTechnicalNameField;
+
+            /// <remarks/>
+            public string amazonTechnicalName
+            {
+                get
+                {
+                    return this.amazonTechnicalNameField;
+                }
+                set
+                {
+                    this.amazonTechnicalNameField = value;
+                }
+            }
         }
 
-        public class Cartonid
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDeclaredGrossWeight
         {
-            public string amazonBarCode { get; set; }
-            public string encryptedShipmentID { get; set; }
-            public string packageID { get; set; }
-            public string trackingID { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDeclaredGrossWeightWeightValue weightValueField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDeclaredGrossWeightWeightValue weightValue
+            {
+                get
+                {
+                    return this.weightValueField;
+                }
+                set
+                {
+                    this.weightValueField = value;
+                }
+            }
         }
 
-        public class Packageshipmentmethod
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDeclaredGrossWeightWeightValue
         {
-            public string amazonTechnicalName { get; set; }
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Shipmentpackagedeclaredgrossweight
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageActualGrossWeight
         {
-            public Weightvalue weightValue { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageActualGrossWeightWeightValue weightValueField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageActualGrossWeightWeightValue weightValue
+            {
+                get
+                {
+                    return this.weightValueField;
+                }
+                set
+                {
+                    this.weightValueField = value;
+                }
+            }
         }
 
-        public class Weightvalue
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageActualGrossWeightWeightValue
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Shipmentpackageactualgrossweight
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensions
         {
-            public Weightvalue1 weightValue { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsLengthValue lengthValueField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsHeightValue heightValueField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsWidthValue widthValueField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsLengthValue lengthValue
+            {
+                get
+                {
+                    return this.lengthValueField;
+                }
+                set
+                {
+                    this.lengthValueField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsHeightValue heightValue
+            {
+                get
+                {
+                    return this.heightValueField;
+                }
+                set
+                {
+                    this.heightValueField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsWidthValue widthValue
+            {
+                get
+                {
+                    return this.widthValueField;
+                }
+                set
+                {
+                    this.widthValueField = value;
+                }
+            }
         }
 
-        public class Weightvalue1
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsLengthValue
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Shipmentpackagedimensions
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsHeightValue
         {
-            public Lengthvalue lengthValue { get; set; }
-            public Heightvalue heightValue { get; set; }
-            public Widthvalue widthValue { get; set; }
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Lengthvalue
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageDimensionsWidthValue
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Heightvalue
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetail
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemID itemIDField;
+
+            private string itemTitleField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemQuantity itemQuantityField;
+
+            private string isHazmatField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfo itemPriceInfoField;
+
+            private string harmonizedTariffNumberField;
+
+            private string harmonizedTariffDescriptionField;
+
+            private string countryOfOriginField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemID itemID
+            {
+                get
+                {
+                    return this.itemIDField;
+                }
+                set
+                {
+                    this.itemIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string itemTitle
+            {
+                get
+                {
+                    return this.itemTitleField;
+                }
+                set
+                {
+                    this.itemTitleField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemQuantity itemQuantity
+            {
+                get
+                {
+                    return this.itemQuantityField;
+                }
+                set
+                {
+                    this.itemQuantityField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string isHazmat
+            {
+                get
+                {
+                    return this.isHazmatField;
+                }
+                set
+                {
+                    this.isHazmatField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfo itemPriceInfo
+            {
+                get
+                {
+                    return this.itemPriceInfoField;
+                }
+                set
+                {
+                    this.itemPriceInfoField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string harmonizedTariffNumber
+            {
+                get
+                {
+                    return this.harmonizedTariffNumberField;
+                }
+                set
+                {
+                    this.harmonizedTariffNumberField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string harmonizedTariffDescription
+            {
+                get
+                {
+                    return this.harmonizedTariffDescriptionField;
+                }
+                set
+                {
+                    this.harmonizedTariffDescriptionField = value;
+                }
+            }
+
+            /// <remarks/>
+            public string countryOfOrigin
+            {
+                get
+                {
+                    return this.countryOfOriginField;
+                }
+                set
+                {
+                    this.countryOfOriginField = value;
+                }
+            }
         }
 
-        public class Widthvalue
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemID
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private string typeField;
+
+            private string isFreeRepField;
+
+            private string valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string type
+            {
+                get
+                {
+                    return this.typeField;
+                }
+                set
+                {
+                    this.typeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string isFreeRep
+            {
+                get
+                {
+                    return this.isFreeRepField;
+                }
+                set
+                {
+                    this.isFreeRepField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public string Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Totaldeclaredvalue
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemQuantity
         {
-            public string currencyISOCode { get; set; }
-            public string text { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemQuantityQuantity quantityField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemQuantityQuantity quantity
+            {
+                get
+                {
+                    return this.quantityField;
+                }
+                set
+                {
+                    this.quantityField = value;
+                }
+            }
         }
 
-        public class Shipmentpackageitemquantity
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemQuantityQuantity
         {
-            public Quantity quantity { get; set; }
+
+            private string unitOfMeasureField;
+
+            private byte valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public byte Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Quantity
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfo
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemUnitPrice itemUnitPriceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemExtendedPrice itemExtendedPriceField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemUnitPrice itemUnitPrice
+            {
+                get
+                {
+                    return this.itemUnitPriceField;
+                }
+                set
+                {
+                    this.itemUnitPriceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemExtendedPrice itemExtendedPrice
+            {
+                get
+                {
+                    return this.itemExtendedPriceField;
+                }
+                set
+                {
+                    this.itemExtendedPriceField = value;
+                }
+            }
         }
 
-        public class Manifestsummary
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemUnitPrice
         {
-            public Totalshipmentquantity totalShipmentQuantity { get; set; }
-            public Totalshipmentvalue totalShipmentValue { get; set; }
-            public Totaldeclaredgrossweight totalDeclaredGrossWeight { get; set; }
-            public Totalactualgrossweight totalActualGrossWeight { get; set; }
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemUnitPriceMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemUnitPriceMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
         }
 
-        public class Totalshipmentquantity
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemUnitPriceMonetaryAmount
         {
-            public Quantity1 quantity { get; set; }
+
+            private string currencyISOCodeField;
+
+            private string valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public string Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Quantity1
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemExtendedPrice
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemExtendedPriceMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemExtendedPriceMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
         }
 
-        public class Totalshipmentvalue
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemDetailItemPriceInfoItemExtendedPriceMonetaryAmount
         {
-            public string chargeOrAllowance { get; set; }
-            public Monetaryamount4 monetaryAmount { get; set; }
+
+            private string currencyISOCodeField;
+
+            private string valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public string Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Monetaryamount4
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoTotalDeclaredValue
         {
-            public string currencyISOCode { get; set; }
-            public string text { get; set; }
+
+            private string currencyISOCodeField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Totaldeclaredgrossweight
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemQuantity
         {
-            public Weightvalue2 weightValue { get; set; }
+
+            private transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemQuantityQuantity quantityField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemQuantityQuantity quantity
+            {
+                get
+                {
+                    return this.quantityField;
+                }
+                set
+                {
+                    this.quantityField = value;
+                }
+            }
         }
 
-        public class Weightvalue2
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestShipmentDetailShipmentPackageInfoShipmentPackageItemQuantityQuantity
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private string unitOfMeasureField;
+
+            private byte valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public byte Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
         }
 
-        public class Totalactualgrossweight
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummary
         {
-            public Weightvalue3 weightValue { get; set; }
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalShipmentQuantity totalShipmentQuantityField;
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalShipmentValue totalShipmentValueField;
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalDeclaredGrossWeight totalDeclaredGrossWeightField;
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalActualGrossWeight totalActualGrossWeightField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalShipmentQuantity totalShipmentQuantity
+            {
+                get
+                {
+                    return this.totalShipmentQuantityField;
+                }
+                set
+                {
+                    this.totalShipmentQuantityField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalShipmentValue totalShipmentValue
+            {
+                get
+                {
+                    return this.totalShipmentValueField;
+                }
+                set
+                {
+                    this.totalShipmentValueField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalDeclaredGrossWeight totalDeclaredGrossWeight
+            {
+                get
+                {
+                    return this.totalDeclaredGrossWeightField;
+                }
+                set
+                {
+                    this.totalDeclaredGrossWeightField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalActualGrossWeight totalActualGrossWeight
+            {
+                get
+                {
+                    return this.totalActualGrossWeightField;
+                }
+                set
+                {
+                    this.totalActualGrossWeightField = value;
+                }
+            }
         }
 
-        public class Weightvalue3
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalShipmentQuantity
         {
-            public string unitOfMeasure { get; set; }
-            public string text { get; set; }
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalShipmentQuantityQuantity quantityField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalShipmentQuantityQuantity quantity
+            {
+                get
+                {
+                    return this.quantityField;
+                }
+                set
+                {
+                    this.quantityField = value;
+                }
+            }
         }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalShipmentQuantityQuantity
+        {
+
+            private string unitOfMeasureField;
+
+            private byte valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public byte Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalShipmentValue
+        {
+
+            private string chargeOrAllowanceField;
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalShipmentValueMonetaryAmount monetaryAmountField;
+
+            /// <remarks/>
+            public string chargeOrAllowance
+            {
+                get
+                {
+                    return this.chargeOrAllowanceField;
+                }
+                set
+                {
+                    this.chargeOrAllowanceField = value;
+                }
+            }
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalShipmentValueMonetaryAmount monetaryAmount
+            {
+                get
+                {
+                    return this.monetaryAmountField;
+                }
+                set
+                {
+                    this.monetaryAmountField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalShipmentValueMonetaryAmount
+        {
+
+            private string currencyISOCodeField;
+
+            private string valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyISOCode
+            {
+                get
+                {
+                    return this.currencyISOCodeField;
+                }
+                set
+                {
+                    this.currencyISOCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public string Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalDeclaredGrossWeight
+        {
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalDeclaredGrossWeightWeightValue weightValueField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalDeclaredGrossWeightWeightValue weightValue
+            {
+                get
+                {
+                    return this.weightValueField;
+                }
+                set
+                {
+                    this.weightValueField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalDeclaredGrossWeightWeightValue
+        {
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalActualGrossWeight
+        {
+
+            private transmissionMessageAmazonManifestManifestSummaryTotalActualGrossWeightWeightValue weightValueField;
+
+            /// <remarks/>
+            public transmissionMessageAmazonManifestManifestSummaryTotalActualGrossWeightWeightValue weightValue
+            {
+                get
+                {
+                    return this.weightValueField;
+                }
+                set
+                {
+                    this.weightValueField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class transmissionMessageAmazonManifestManifestSummaryTotalActualGrossWeightWeightValue
+        {
+
+            private string unitOfMeasureField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string unitOfMeasure
+            {
+                get
+                {
+                    return this.unitOfMeasureField;
+                }
+                set
+                {
+                    this.unitOfMeasureField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
+        }
+
 
     }
 }
+

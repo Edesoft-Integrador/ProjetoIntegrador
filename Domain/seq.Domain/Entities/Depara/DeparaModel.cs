@@ -1,9 +1,8 @@
 ﻿using seq.Domain.Interface.Entities.Depara;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace seq.Domain.Entities.Depara
+
+namespace seq.Domain.Entities
 {
     public class DeparaModel : IDeparaModel
     {
