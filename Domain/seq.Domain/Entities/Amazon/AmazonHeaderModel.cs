@@ -6,8 +6,11 @@ namespace seq.Domain.Entities
 {
     public class AmazonHeaderModel
     {
-        public long? Arquivo { get; set; }
+        public long? HearderId { get; set; }
+        public long? HeaderIdPai { get; set; }
+        public string Arquivo { get; set; }
         public int? Linha { get; set; }
+        public DateTime Processado { get; set; }
         public string Descricao { get; set; }
         public string Campo001{ get; set;}
         public string Campo002{ get; set;}

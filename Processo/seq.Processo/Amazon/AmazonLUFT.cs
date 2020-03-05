@@ -30,8 +30,10 @@ namespace seq.Processo.Amazon
 
                 var amazonHeaderModel = new AmazonHeaderModel()
                 {
-                    Arquivo = 0,
+                    HeaderIdPai = 0,
+                    Arquivo = Path.GetFileName(value),
                     Linha = 0,
+                    Descricao = pasta + " - " + arquivo + " - " + id,
                     Campo001 = "cnpjRemetente",
                     Campo002 = "inscricaoestadual",
                     Campo003 = "razaosocial",
@@ -46,7 +48,8 @@ namespace seq.Processo.Amazon
 
                 var amazonHeaderModel1 = new AmazonHeaderModel()
                 {
-                    Arquivo = headerId,
+                    HeaderIdPai = headerId,
+                    Arquivo = Path.GetFileName(value),
                     Linha = 1,
                     Descricao = pasta + " - " + arquivo + " - " + id,
                     Campo001 = lista.message.TrackingInfo.coletaDetalhe.cnpjRemetente,

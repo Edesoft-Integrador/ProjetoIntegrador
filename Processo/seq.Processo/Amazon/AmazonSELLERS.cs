@@ -34,8 +34,10 @@ namespace seq.Processo.Amazon
 
                 amazonHeaderModel = new AmazonHeaderModel()
                 {
-                    Arquivo = 0,
+                    HeaderIdPai = 0,
+                    Arquivo = Path.GetFileName(value),
                     Linha = 0,
+                    Descricao = pasta + " - " + arquivo + " - " + id,
                     Campo001 = "receivingPartyID",
                     Campo002 = "sendingPartyID",
                     Campo003 = "transmissionCreationDate",
@@ -66,7 +68,8 @@ namespace seq.Processo.Amazon
 
                 var headerId = await _contextHeader.AddAsync(amazonHeaderModel);
 
-                amazonHeaderModel.Arquivo = headerId;
+                amazonHeaderModel.HeaderIdPai = headerId;
+                amazonHeaderModel.Arquivo = Path.GetFileName(value);
                 amazonHeaderModel.Linha = 1;
                 amazonHeaderModel.Descricao = pasta + " - " + arquivo + " - " + id;
                 amazonHeaderModel.Campo001 = lista.receivingPartyID;
