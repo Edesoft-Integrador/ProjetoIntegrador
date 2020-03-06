@@ -1,5 +1,6 @@
 ﻿
 using seq.Domain.Entities;
+using seq.Domain.Entities.Geral;
 using seq.Domain.Interface.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace seq.Processo.Amazon
 {
     public class AmazonGRU5
     {
-        private readonly IAmazonHeaderRepository _contextHeader;
-        private readonly IAmazonDetalheRepository _contextDetalhe;
+        private readonly IGeralHeaderRepository _contextHeader;
+        private readonly IGeralDetalheRepository _contextDetalhe;
 
-        public AmazonGRU5(IAmazonHeaderRepository contextHeader, IAmazonDetalheRepository contextDetalhe)
+        public AmazonGRU5(IGeralHeaderRepository contextHeader, IGeralDetalheRepository contextDetalhe)
         {
             _contextHeader = contextHeader;
             _contextDetalhe = contextDetalhe;
@@ -31,9 +32,9 @@ namespace seq.Processo.Amazon
                     lista = (transmission)ser.Deserialize(reader);
                 }
 
-                AmazonHeaderModel amazonHeaderModel = new AmazonHeaderModel();
+                GeralHeaderModel GeralHeaderModel = new GeralHeaderModel();
 
-                amazonHeaderModel = new AmazonHeaderModel()
+                GeralHeaderModel = new GeralHeaderModel()
                 {
                     HeaderIdPai = 0,
                     Arquivo = Path.GetFileName(value),
@@ -68,54 +69,54 @@ namespace seq.Processo.Amazon
                     Campo027 = "countryName"
                 };
 
-                var headerId = await _contextHeader.AddAsync(amazonHeaderModel);
+                var headerId = await _contextHeader.AddAsync(GeralHeaderModel);
 
-                amazonHeaderModel.HeaderIdPai = headerId;
-                amazonHeaderModel.Arquivo = Path.GetFileName(value);
-                amazonHeaderModel.Linha = 1;
-                amazonHeaderModel.Descricao = pasta + " - " + arquivo + " - " + id;
-                amazonHeaderModel.Campo001 = lista.receivingPartyID;
-                amazonHeaderModel.Campo002 = lista.sendingPartyID;
-                amazonHeaderModel.Campo003 = lista.transmissionCreationDate.ToString();
-                amazonHeaderModel.Campo004 = lista.transmissionSchemaVersionNumber.ToString();
-                amazonHeaderModel.Campo005 = lista.message.amazonManifest.manifestHeader.warehouseLocationID.ToString();
-                amazonHeaderModel.Campo006 = lista.message.amazonManifest.manifestHeader.manifestCreateDateTime.ToString();
-                amazonHeaderModel.Campo007 = lista.message.amazonManifest.manifestHeader.loadReferenceID.ToString();
-                amazonHeaderModel.Campo008 = lista.message.amazonManifest.manifestHeader.trailerName.ToString();
-                amazonHeaderModel.Campo009 = lista.message.amazonManifest.manifestHeader.carrierInternalID.ToString();
-                amazonHeaderModel.Campo010 = lista.message.amazonManifest.manifestHeader.shipmentMethod[0].amazonTechnicalName.ToString();
-                amazonHeaderModel.Campo011 = null;
+                GeralHeaderModel.HeaderIdPai = headerId;
+                GeralHeaderModel.Arquivo = Path.GetFileName(value);
+                GeralHeaderModel.Linha = 1;
+                GeralHeaderModel.Descricao = pasta + " - " + arquivo + " - " + id;
+                GeralHeaderModel.Campo001 = lista.receivingPartyID;
+                GeralHeaderModel.Campo002 = lista.sendingPartyID;
+                GeralHeaderModel.Campo003 = lista.transmissionCreationDate.ToString();
+                GeralHeaderModel.Campo004 = lista.transmissionSchemaVersionNumber.ToString();
+                GeralHeaderModel.Campo005 = lista.message.amazonManifest.manifestHeader.warehouseLocationID.ToString();
+                GeralHeaderModel.Campo006 = lista.message.amazonManifest.manifestHeader.manifestCreateDateTime.ToString();
+                GeralHeaderModel.Campo007 = lista.message.amazonManifest.manifestHeader.loadReferenceID.ToString();
+                GeralHeaderModel.Campo008 = lista.message.amazonManifest.manifestHeader.trailerName.ToString();
+                GeralHeaderModel.Campo009 = lista.message.amazonManifest.manifestHeader.carrierInternalID.ToString();
+                GeralHeaderModel.Campo010 = lista.message.amazonManifest.manifestHeader.shipmentMethod[0].amazonTechnicalName.ToString();
+                GeralHeaderModel.Campo011 = null;
                 if (arquivo == "EXPEDITED" && id == "XBRA")
                 {
-                    amazonHeaderModel.Campo011 = lista.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName;
+                    GeralHeaderModel.Campo011 = lista.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName;
                 }
-                amazonHeaderModel.Campo012 = lista.message.amazonManifest.manifestHeader.manifestNumber.ToString();
-                amazonHeaderModel.Campo013 = lista.message.amazonManifest.manifestHeader.carrierAccountID.ToString();
-                amazonHeaderModel.Campo014 = lista.message.amazonManifest.manifestHeader.shipmentDate.ToString();
-                amazonHeaderModel.Campo015 = lista.message.amazonManifest.manifestHeader.shipmentDay.ToString();
-                amazonHeaderModel.Campo016 = lista.message.amazonManifest.manifestHeader.currencyCode.ToString();
-                amazonHeaderModel.Campo017 = lista.message.amazonManifest.manifestHeader.shipFromAddress.AddressType.ToString();
-                amazonHeaderModel.Campo018 = lista.message.amazonManifest.manifestHeader.shipperInformation.amazonTaxID.ToString();
-                amazonHeaderModel.Campo019 = lista.message.amazonManifest.manifestHeader.prepaidCollect.ToString();
-                amazonHeaderModel.Campo020 = lista.message.amazonManifest.manifestHeader.shipFromAddress.name.ToString();
-                amazonHeaderModel.Campo021 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine1.ToString();
-                amazonHeaderModel.Campo022 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine2.ToString();
-                amazonHeaderModel.Campo023 = lista.message.amazonManifest.manifestHeader.shipFromAddress.city.ToString();
-                amazonHeaderModel.Campo024 = lista.message.amazonManifest.manifestHeader.shipFromAddress.stateChoice.stateProvince.ToString();
-                amazonHeaderModel.Campo025 = lista.message.amazonManifest.manifestHeader.shipFromAddress.zip.ToString();
-                amazonHeaderModel.Campo026 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString();
-                amazonHeaderModel.Campo027 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryName;
+                GeralHeaderModel.Campo012 = lista.message.amazonManifest.manifestHeader.manifestNumber.ToString();
+                GeralHeaderModel.Campo013 = lista.message.amazonManifest.manifestHeader.carrierAccountID.ToString();
+                GeralHeaderModel.Campo014 = lista.message.amazonManifest.manifestHeader.shipmentDate.ToString();
+                GeralHeaderModel.Campo015 = lista.message.amazonManifest.manifestHeader.shipmentDay.ToString();
+                GeralHeaderModel.Campo016 = lista.message.amazonManifest.manifestHeader.currencyCode.ToString();
+                GeralHeaderModel.Campo017 = lista.message.amazonManifest.manifestHeader.shipFromAddress.AddressType.ToString();
+                GeralHeaderModel.Campo018 = lista.message.amazonManifest.manifestHeader.shipperInformation.amazonTaxID.ToString();
+                GeralHeaderModel.Campo019 = lista.message.amazonManifest.manifestHeader.prepaidCollect.ToString();
+                GeralHeaderModel.Campo020 = lista.message.amazonManifest.manifestHeader.shipFromAddress.name.ToString();
+                GeralHeaderModel.Campo021 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine1.ToString();
+                GeralHeaderModel.Campo022 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine2.ToString();
+                GeralHeaderModel.Campo023 = lista.message.amazonManifest.manifestHeader.shipFromAddress.city.ToString();
+                GeralHeaderModel.Campo024 = lista.message.amazonManifest.manifestHeader.shipFromAddress.stateChoice.stateProvince.ToString();
+                GeralHeaderModel.Campo025 = lista.message.amazonManifest.manifestHeader.shipFromAddress.zip.ToString();
+                GeralHeaderModel.Campo026 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString();
+                GeralHeaderModel.Campo027 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryName;
 
-                headerId = await _contextHeader.AddAsync(amazonHeaderModel);
+                headerId = await _contextHeader.AddAsync(GeralHeaderModel);
 
                 long detalheId = 0;
 
-                List<AmazonDetalheModel> _amazonDetalheModel = new List<AmazonDetalheModel>();
+                List<GeralDetalheModel> _amazonDetalheModel = new List<GeralDetalheModel>();
 
                 _amazonDetalheModel.Clear();
 
                 _amazonDetalheModel.Clear();
-                _amazonDetalheModel.Add(new AmazonDetalheModel()
+                _amazonDetalheModel.Add(new GeralDetalheModel()
                 {
                     HeaderId = headerId,
                     Linha = 0,
@@ -209,7 +210,7 @@ namespace seq.Processo.Amazon
                 foreach (var item in lista.message.amazonManifest.manifestDetail)
                 {
                     _amazonDetalheModel.Clear();
-                    _amazonDetalheModel.Add(new AmazonDetalheModel()
+                    _amazonDetalheModel.Add(new GeralDetalheModel()
                     {
                         HeaderId = headerId,
                         Linha = 1,

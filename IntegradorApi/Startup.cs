@@ -51,7 +51,7 @@ namespace IntegradorApi
             services.AddScoped<IProcessoService, ProcessoService>();
             services.AddScoped<IIntegradoService, IntegradoService>();
             services.AddScoped<IArquivoService, ArquivoService>();
-            services.AddScoped<IAmazonHeaderService, AmazonHeaderService>();
+            services.AddScoped<IAmazonService, AmazonHeaderService>();
             services.AddScoped<IAmazonDetalheService, AmazonDetalheService>();
             services.AddScoped<IAmazonLUFTService, AmazonLUFTService>();
             services.AddScoped<IAmazonSellersService, AmazonSellersService>();
@@ -61,8 +61,8 @@ namespace IntegradorApi
             services.AddScoped<IProcessoRepository, ProcessoRepository>();
             services.AddScoped<IIntegradoRepository, IntegradoRepository>();
             services.AddScoped<IArquivorepository, ArquivoRepository>();
-            services.AddScoped<IAmazonHeaderRepository, AmazonHeaderRepository>();
-            services.AddScoped<IAmazonDetalheRepository, AmazonDetalheRepository>();
+            services.AddScoped<IGeralHeaderRepository, AmazonHeaderRepository>();
+            services.AddScoped<IGeralDetalheRepository, AmazonDetalheRepository>();
             services.AddScoped<IAmazonLUFTRepository, AmazonLUFTRepository>();
             services.AddScoped<IAmazonSellersRepository, AmazonSellersRepository>();
 

@@ -45,7 +45,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\seq.Application\seq.Application.csproj" />
-    <ProjectReference Include="..\Data\seq.DataAccess\seq.DataAccess.csproj" />
     <ProjectReference Include="..\Domain\seq.Domain\seq.Domain.csproj" />
     <ProjectReference Include="..\Infra.Data\seq.Infra.Data.csproj" />
     <ProjectReference Include="..\Infra\seq.Infra\seq.Infra.csproj" />
