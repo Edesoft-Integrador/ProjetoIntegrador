@@ -1,11 +1,12 @@
 ﻿using seq.Domain.Interface.Entities.Depara;
 using System;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace seq.Domain.Entities
 {
     public class DeparaModel : IDeparaModel
     {
+        [Key]
         public long? DeparaId { get; set;}
         public long ProcessoId { get; set;}
         public string CampoOrigem { get; set;}
@@ -19,8 +20,8 @@ namespace seq.Domain.Entities
         public double ValorMaximo { get; set;}
         public bool Ativo { get; set;}
         public DateTime? DataAlteracao { get; set;}
-        public long? UsuarioIdAlteracao { get; set;}
+        public string UsuarioIdAlteracao { get; set;}
         public DateTime DataInclusao { get; set;}
-        public long UsuarioIdInclusao { get; set;}
+        public string UsuarioIdInclusao { get; set;}
     }
 }

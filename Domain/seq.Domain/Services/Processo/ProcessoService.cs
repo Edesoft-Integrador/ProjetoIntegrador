@@ -4,10 +4,10 @@ using seq.Domain.Interface.Services;
 
 namespace seq.Domain.Services
 {
-    public class ArquivoService : ServiceBase<ArquivoModel>, IArquivoService
+    public class ProcessoService : ServiceBase<ProcessoModel>, IProcessoService
     {
-        private readonly IArquivorepository _repository;
-        public ArquivoService(IArquivorepository repository) : base(repository)
+        private readonly IProcessoRepository _repository;
+        public ProcessoService(IProcessoRepository repository) : base(repository)
         {
             _repository = repository;
         }

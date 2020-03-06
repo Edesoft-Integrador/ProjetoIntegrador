@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace seq.Domain.Entities
@@ -17,6 +18,7 @@ namespace seq.Domain.Entities
 
         private transmissionMessage messageField;
 
+        [Key]
         private string sendingPartyIDField;
 
         private string receivingPartyIDField;

@@ -9,8 +9,8 @@ namespace eim.Domain.Interface.Entities
     public interface IBaseMovimentoDb
     {
         DateTime? DataAlteracao { get; set; }
-        long? UsuarioIdAlteracao { get; set; }
+        string UsuarioIdAlteracao { get; set; }
         DateTime DataInclusao { get; set; }
-        long UsuarioIdInclusao { get; set; }
+        string UsuarioIdInclusao { get; set; }
     }
 }

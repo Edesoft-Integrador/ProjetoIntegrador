@@ -12,7 +12,7 @@ namespace seq.Domain.Interface.Services
         Task RemoveAsync(TEntity obj);
         Task<bool> AnyAsync(TEntity obj);
         void Dispose();
-        Task<TEntity> GetByIDAsync(int ID);
+        Task<TEntity> GetByIDAsync(long ID);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task AddRangeAsync(IEnumerable<TEntity> obj);
         Task UpdateRangeAsync(IEnumerable<TEntity> obj);

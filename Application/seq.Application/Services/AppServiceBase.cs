@@ -36,7 +36,7 @@ namespace seq.Application.Services
             return await _serviceBase.GetAllAsync();
         }
 
-        public async Task<TEntity> GetByIDAsync(int ID)
+        public async Task<TEntity> GetByIDAsync(long ID)
         {
             return await _serviceBase.GetByIDAsync(ID);
         }

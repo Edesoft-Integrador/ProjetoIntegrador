@@ -33,7 +33,7 @@ namespace seq.Domain.Services
             return await _repository.GetAllAsync().ConfigureAwait(true);
         }
 
-        public async Task<TEntity> GetByIDAsync(int ID)
+        public async Task<TEntity> GetByIDAsync(long ID)
         {
             return await _repository.GetByIDAsync(ID).ConfigureAwait(true);
         }

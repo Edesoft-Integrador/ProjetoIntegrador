@@ -26,9 +26,9 @@ namespace IntegradorApi.Controllers
 
         // GET: api/Arquivo
         [HttpGet("Search")]
-        public async Task<IEnumerable<ArquivoModel>> Search(long id, string Descricao)
+        public async Task<IActionResult> Search(long? id, string Descricao)
         {
-            return new List<ArquivoModel>(); // await _context.GetByIDAsync((int)id);
+            return Ok(await _context.Search(id, Descricao));
         }
 
         // GET: api/Arquivo/5

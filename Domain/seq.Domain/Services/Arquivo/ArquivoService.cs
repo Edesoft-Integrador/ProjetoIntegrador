@@ -1,18 +1,23 @@
 ﻿using seq.Domain.Entities;
 using seq.Domain.Interface.Repositories;
 using seq.Domain.Interface.Services;
+using System.Collections;
+using System.Threading.Tasks;
 
 namespace seq.Domain.Services
 {
-    public class ProcessoService : ServiceBase<ProcessoModel>, IProcessoService
+    public class ArquivoService : ServiceBase<ArquivoModel>, IArquivoService
     {
-        private readonly IProcessoRepository _repository;
+        private readonly IArquivorepository _repository;
 
-        public ProcessoService(IProcessoRepository repository) : base(repository)
+        public ArquivoService(IArquivorepository repository) : base(repository)
         {
             _repository = repository;
         }
 
-
+        public Task<IEnumerable> Search(long? id, string descricao)
+        {
+            return _repository.Search(id, descricao);
+        }
     }
 }

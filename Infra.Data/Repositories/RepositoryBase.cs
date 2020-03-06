@@ -125,7 +125,7 @@ namespace seq.Infra.Data.Repositories
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public virtual async Task<TEntity> GetByIDAsync(int ID)
+        public virtual async Task<TEntity> GetByIDAsync(long ID)
         {
             return await _context.Set<TEntity>().FindAsync(ID);
         }

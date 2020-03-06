@@ -1,12 +1,14 @@
 ﻿using seq.Domain.Interface.Entities.Amazon;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace seq.Domain.Entities
 {
     public class AmazonDetalheModel : IAmazonDetalheModel
     {
+        [Key]
         public long DetalheId { get; set;}
         public long HeaderId { get; set;}
         public int Linha { get; set; }

@@ -7,7 +7,7 @@ namespace seq.Domain.Interface.Entities.Arquivo
 {
     public interface IArquivoModel: IBaseMovimentoDb
     {
-      long? Id { get; set; }
+      long? ArquivoId { get; set; }
       string Descricao { get; set; }
       bool Ativo { get; set; }
     }

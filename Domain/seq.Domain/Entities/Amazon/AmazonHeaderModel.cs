@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace seq.Domain.Entities
 {
     public class AmazonHeaderModel
     {
+        [Key]
         public long? Arquivo { get; set; }
         public int? Linha { get; set; }
         public string Descricao { get; set; }
