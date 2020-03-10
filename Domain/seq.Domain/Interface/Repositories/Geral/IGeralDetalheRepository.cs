@@ -4,7 +4,7 @@ using seq.Domain.Interfaces.Repositories;
 
 namespace seq.Domain.Interface.Repositories
 {
-    public interface IAmazonDetalheRepository : IRepositoryBase<AmazonDetalheModel>
+    public interface IGeralDetalheRepository : IRepositoryBase<GeralDetalheModel>
     {
     }
 }

@@ -1,16 +1,13 @@
-﻿using seq.Domain.Interface.Entities.Amazon;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace seq.Domain.Entities
 {
     [Table("tb_Integrado_Detalhe")]
-    public class AmazonDetalheModel : IAmazonDetalheModel
+    public class GeralDetalheModel
     {
-        public AmazonDetalheModel()
+        public GeralDetalheModel()
         { }
 
         [Key]

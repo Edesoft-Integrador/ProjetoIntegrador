@@ -9,9 +9,9 @@ namespace IntegradorApi.Controllers.Amazon
     [ApiController]
     public class AmazonController : ControllerBase
     {
-        private readonly IAmazonHeaderAppService _context;
+        private readonly IAmazonAppService _context;
 
-        public AmazonController(IAmazonHeaderAppService context)
+        public AmazonController(IAmazonAppService context)
         {
             _context = context;
 

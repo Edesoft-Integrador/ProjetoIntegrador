@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace seq.Domain.Entities
 {
     [Table("tb_Integrado_Header")]
-    public class AmazonHeaderModel
+    public class GeralHeaderModel
     {
         [Key]
         public long HeaderId { get; set; }

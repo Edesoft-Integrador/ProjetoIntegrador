@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace seq.Domain.Interface.Services
 {
-    public interface IAmazonHeaderService : IServiceBase<AmazonHeaderModel>
+    public interface IGeralDetalheService : IServiceBase<GeralDetalheModel>
     {
         Task<Int64> Processa(string value);
     }

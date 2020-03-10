@@ -1,10 +1,10 @@
-﻿using seq.Domain.Interface.Entities.Arquivo;
+﻿using seq.Domain.Interface.Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace seq.Domain.Entities
 {
-    public class ArquivoModel : IArquivoModel
+    public class ArquivoModel : IBaseMovimentoDb
     {
         [Key]
         public long? ArquivoId { get; set; }

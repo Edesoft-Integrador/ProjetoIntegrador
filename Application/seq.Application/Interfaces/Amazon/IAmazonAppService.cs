@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace seq.Application.Interfaces
 {
-    public interface IAmazonHeaderAppService : IAppServiceBase<AmazonHeaderModel>
+    public interface IAmazonAppService : IAppServiceBase<GeralHeaderModel>
     {
         Task<int> ProcessaXML(string value);
     }

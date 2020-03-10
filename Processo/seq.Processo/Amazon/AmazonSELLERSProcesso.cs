@@ -11,13 +11,13 @@ namespace seq.Processo.Amazon
         public AmazonSELLERSProcesso()
         {}
 
-        public async Task<IEnumerable<AmazonHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
+        public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
         {
             try
             {
-                var lst = new List<AmazonHeaderModel>();
+                var lst = new List<GeralHeaderModel>();
 
-                lst.Add( new AmazonHeaderModel()
+                lst.Add( new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 0,
@@ -51,7 +51,7 @@ namespace seq.Processo.Amazon
                     Campo027 = "countryName"
                 });
 
-                lst.Add(new AmazonHeaderModel()
+                lst.Add(new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 1,
@@ -95,15 +95,15 @@ namespace seq.Processo.Amazon
             }
         }
 
-        public async Task<IEnumerable<AmazonDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
+        public async Task<IEnumerable<GeralDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
         {
 
             try
             {
 
-                var lst = new List<AmazonDetalheModel>();
+                var lst = new List<GeralDetalheModel>();
 
-                lst.Add(new AmazonDetalheModel()
+                lst.Add(new GeralDetalheModel()
                 {
                     HeaderIdPai = headerIdPai,
                     Linha = 0,
@@ -193,7 +193,7 @@ namespace seq.Processo.Amazon
 
                 });
 
-                lst.Add(new AmazonDetalheModel()
+                lst.Add(new GeralDetalheModel()
                 {
                     HeaderIdPai = headerIdPai,
                     Linha = 1,

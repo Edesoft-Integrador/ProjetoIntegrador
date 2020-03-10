@@ -11,13 +11,13 @@ namespace seq.Processo.Amazon
         public AmazonLUFTProcesso()
         {}
 
-        public async Task<IEnumerable<AmazonHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo)
+        public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo)
         {
             try
             {
-                var lst = new List<AmazonHeaderModel>();
+                var lst = new List<GeralHeaderModel>();
 
-                var amazonHeaderModelTitulo = new AmazonHeaderModel()
+                var amazonHeaderModelTitulo = new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 0,
@@ -33,7 +33,7 @@ namespace seq.Processo.Amazon
                     Campo008 = "cep"
                 };
 
-                var amazonHeaderModelDtatalhe = new AmazonHeaderModel()
+                var amazonHeaderModelDtatalhe = new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 0,
@@ -60,14 +60,14 @@ namespace seq.Processo.Amazon
             }
         }
 
-        public async Task<IEnumerable<AmazonDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
+        public async Task<IEnumerable<GeralDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
         {
 
             try
             {
-                List<AmazonDetalheModel> lst = new List<AmazonDetalheModel>();
+                List<GeralDetalheModel> lst = new List<GeralDetalheModel>();
 
-                lst.Add(new AmazonDetalheModel()
+                lst.Add(new GeralDetalheModel()
                 {
                     HeaderIdPai = headerIdPai,
                     Linha = 0,
@@ -136,7 +136,7 @@ namespace seq.Processo.Amazon
 
                 foreach (var subitem in trans.message.TrackingInfo.coletaDetalhe.notaFiscal)
                 {
-                    lst.Add(new AmazonDetalheModel()
+                    lst.Add(new GeralDetalheModel()
                     {
                         HeaderIdPai = headerIdPai,
                         Linha = 1,

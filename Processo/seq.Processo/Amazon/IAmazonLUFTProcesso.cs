@@ -8,7 +8,7 @@ namespace seq.Processo.Amazon
 {
     public interface IAmazonLUFTProcesso
     {
-        Task<IEnumerable<AmazonHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo);
-        Task<IEnumerable<AmazonDetalheModel>> Detalhe(transmission trans, Guid headerIdPai);
+        Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo);
+        Task<IEnumerable<GeralDetalheModel>> Detalhe(transmission trans, Guid headerIdPai);
     }
 }

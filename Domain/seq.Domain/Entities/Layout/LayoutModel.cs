@@ -1,12 +1,10 @@
-﻿using seq.Domain.Interface.Entities.Layout;
+﻿using seq.Domain.Interface.Entities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace seq.Domain.Entities
 {
-    public class LayoutModel : ILayoutModel
+    public class LayoutModel : IBaseMovimentoDb
     {
         [Key]
         public long? LayoutId { get; set;}

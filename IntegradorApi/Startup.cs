@@ -42,24 +42,23 @@ namespace IntegradorApi
             services.AddScoped<IProcessoAppService, ProcessoAppService>();
             services.AddScoped<IIntegradoAppService, IntegradoAppService>();
             services.AddScoped<IArquivoAppService, ArquivoAppService>();
-            services.AddScoped<IAmazonHeaderAppService, AmazonHeaderAppService>();
-            services.AddScoped<IAmazonDetalheAppService, AmazonDetalheAppService>();
+            services.AddScoped<IAmazonAppService, AmazonAppService>();
 
             services.AddScoped<IDeparaService, DeparaService>();
             services.AddScoped<ILayoutService, LayoutService>();
             services.AddScoped<IProcessoService, ProcessoService>();
             services.AddScoped<IIntegradoService, IntegradoService>();
             services.AddScoped<IArquivoService, ArquivoService>();
-            services.AddScoped<IAmazonHeaderService, AmazonHeaderService>();
-            services.AddScoped<IAmazonDetalheService, AmazonDetalheService>();
+            services.AddScoped<IGeralHeaderService, GeralHeaderService>();
+            services.AddScoped<IGeralDetalheService, GeralDetalheService>();
 
             services.AddScoped<IDeparaRepository, DeparaRepository>();
             services.AddScoped<ILayoutRepository, LayoutRepository>();
             services.AddScoped<IProcessoRepository, ProcessoRepository>();
             services.AddScoped<IIntegradoRepository, IntegradoRepository>();
             services.AddScoped<IArquivorepository, ArquivoRepository>();
-            services.AddScoped<IAmazonHeaderRepository, AmazonHeaderRepository>();
-            services.AddScoped<IAmazonDetalheRepository, AmazonDetalheRepository>();
+            services.AddScoped<IGeralHeaderRepository, GeralHeaderRepository>();
+            services.AddScoped<IGeralDetalheRepository, GeralDetalheRepository>();
 
             services.AddScoped<IAmazonLUFTProcesso, AmazonLUFTProcesso>();
             services.AddScoped<IAmazonGRU5Processo, AmazonGRU5Processo>();

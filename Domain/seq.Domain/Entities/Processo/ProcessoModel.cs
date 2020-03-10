@@ -1,12 +1,10 @@
-﻿using seq.Domain.Interface.Entities.Processo;
+﻿using seq.Domain.Interface.Entities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace seq.Domain.Entities
 {
-    public class ProcessoModel : IProcessoModel
+    public class ProcessoModel : IBaseMovimentoDb
     {
         [Key]
         public long? ProcessoId { get; set;}

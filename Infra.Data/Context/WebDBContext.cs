@@ -10,8 +10,8 @@ namespace seq.Infra.Data.Context
 
         }
 
-        public DbSet<AmazonDetalheModel> AmazonDetalhe { get; set; }
-        public DbSet<AmazonHeaderModel> AmazonHeader { get; set; }
+        public DbSet<GeralDetalheModel> AmazonDetalhe { get; set; }
+        public DbSet<GeralHeaderModel> AmazonHeader { get; set; }
         //public DbSet<AmazonLUFTModel> AmazonLUFT { get; set; }
         //public DbSet<AmazonSellersModel> AmazonSellers { get; set; }
         public DbSet<LayoutModel> Layout { get; set; }

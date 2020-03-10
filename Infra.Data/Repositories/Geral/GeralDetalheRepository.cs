@@ -5,9 +5,9 @@ using seq.Infra.Data.Repositories;
 
 namespace seq.Infra.Data.Repository
 {
-    public class AmazonHeaderRepository : RepositoryBase<AmazonHeaderModel>, IAmazonHeaderRepository
+    public class GeralDetalheRepository : RepositoryBase<GeralDetalheModel>, IGeralDetalheRepository
     {
-        public AmazonHeaderRepository(WebDBContext context) : base(context)
+        public GeralDetalheRepository(WebDBContext context) : base(context)
         {
         }
 

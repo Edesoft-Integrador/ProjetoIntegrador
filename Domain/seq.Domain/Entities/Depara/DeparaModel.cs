@@ -1,10 +1,10 @@
-﻿using seq.Domain.Interface.Entities.Depara;
+﻿using seq.Domain.Interface.Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace seq.Domain.Entities
 {
-    public class DeparaModel : IDeparaModel
+    public class DeparaModel : IBaseMovimentoDb
     {
         [Key]
         public long? DeparaId { get; set;}

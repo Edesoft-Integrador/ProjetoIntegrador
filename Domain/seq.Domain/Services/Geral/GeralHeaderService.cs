@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace seq.Domain.Services
 {
-    public class AmazonDetalheService : ServiceBase<AmazonDetalheModel>, IAmazonDetalheService
+    public class GeralHeaderService : ServiceBase<GeralHeaderModel>, IGeralHeaderService
     {
-        private readonly IAmazonDetalheRepository _repository;
-        public AmazonDetalheService(IAmazonDetalheRepository repository) : base(repository)
+        private readonly IGeralHeaderRepository _repository;
+        public GeralHeaderService(IGeralHeaderRepository repository) : base(repository)
         {
             _repository = repository;
         }

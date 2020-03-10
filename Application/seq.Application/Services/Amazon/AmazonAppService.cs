@@ -11,27 +11,27 @@ using System;
 
 namespace seq.Applications.Services
 {
-    public class AmazonHeaderAppService : AppServiceBase<AmazonHeaderModel>, IAmazonHeaderAppService
+    public class AmazonAppService : AppServiceBase<GeralHeaderModel>, IAmazonAppService
     {
-        private readonly IAmazonHeaderService   _amazonHeaderService;
-        private readonly IAmazonDetalheService  _amazonDetalheService;
+        private readonly IGeralHeaderService   _geralHeaderService;
+        private readonly IGeralDetalheService  _geralDetalheService;
         private readonly IAmazonGRU5Processo    _amazonGRU5Processo;
         private readonly IAmazonSELLERSProcesso _amazonSELLERSProcesso;
         private readonly IAmazonLUFTProcesso    _AmazonLUFTProcesso;
 
 
-        public AmazonHeaderAppService
+        public AmazonAppService
         (
-            IAmazonHeaderService   serviceBase
-          , IAmazonDetalheService  amazonDetalheService
+            IGeralHeaderService   serviceBase
+          , IGeralDetalheService  geralDetalheService
           , IAmazonGRU5Processo    amazonGRU5Processo
           , IAmazonSELLERSProcesso amazonSELLERSProcesso
           , IAmazonLUFTProcesso    amazonLUFTProcesso
 
         ) : base(serviceBase)
         {
-            _amazonHeaderService     = serviceBase;
-            _amazonDetalheService    = amazonDetalheService;
+            _geralHeaderService     = serviceBase;
+            _geralDetalheService    = geralDetalheService;
             _amazonGRU5Processo      = amazonGRU5Processo;
             _amazonSELLERSProcesso   = amazonSELLERSProcesso;
             _AmazonLUFTProcesso      = amazonLUFTProcesso;
@@ -57,8 +57,8 @@ namespace seq.Applications.Services
                                                
                         var HeaderIdPai = Guid.NewGuid();
 
-                        await _amazonHeaderService.AddRangeAsync(await _AmazonLUFTProcesso.Header(trans, HeaderIdPai, nomearquivo));
-                        await _amazonDetalheService.AddRangeAsync(await _AmazonLUFTProcesso.Detalhe(trans, HeaderIdPai));
+                        await _geralHeaderService.AddRangeAsync(await _AmazonLUFTProcesso.Header(trans, HeaderIdPai, nomearquivo));
+                        await _geralDetalheService.AddRangeAsync(await _AmazonLUFTProcesso.Detalhe(trans, HeaderIdPai));
                         return 0;
 
 
@@ -92,8 +92,8 @@ namespace seq.Applications.Services
                             var header = await _amazonGRU5Processo.Header(trans, HeaderIdPai, nomearquivo, descricao);
                             var detalhe = await _amazonGRU5Processo.Detalhe(trans, HeaderIdPai);
 
-                            await _amazonHeaderService.AddRangeAsync(header);
-                            await _amazonDetalheService.AddRangeAsync(detalhe);
+                            await _geralHeaderService.AddRangeAsync(header);
+                            await _geralDetalheService.AddRangeAsync(detalhe);
 
                             return 0;
                         } catch(Exception e)
@@ -122,8 +122,8 @@ namespace seq.Applications.Services
 
                             var HeaderIdPai = Guid.NewGuid();
 
-                            await _amazonHeaderService.AddRangeAsync(await _amazonSELLERSProcesso.Header(trans, HeaderIdPai, nomearquivo, descricao));
-                            await _amazonDetalheService.AddRangeAsync(await _amazonSELLERSProcesso.Detalhe(trans, HeaderIdPai));
+                            await _geralHeaderService.AddRangeAsync(await _amazonSELLERSProcesso.Header(trans, HeaderIdPai, nomearquivo, descricao));
+                            await _geralDetalheService.AddRangeAsync(await _amazonSELLERSProcesso.Detalhe(trans, HeaderIdPai));
 
                             return 0;
                         } catch( Exception e)
