@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using seq.Domain.Entities;
+using System.Threading.Tasks;
 
-namespace seq.Application.Interfaces.Amazon
+namespace seq.Application.Interfaces
 {
-    public interface IAmazonAppService
+    public interface IAmazonAppService : IAppServiceBase<GeralHeaderModel>
     {
+        Task<int> ProcessaXML(string value);
     }
 }

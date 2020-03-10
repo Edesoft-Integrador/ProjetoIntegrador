@@ -126,7 +126,7 @@ namespace seq.Infra.Data.Repositories
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await _context.Set<TEntity>().AsNoTracking().ToListAsync();
         }
 
         public virtual async Task<TEntity> GetByIDAsync(long ID)

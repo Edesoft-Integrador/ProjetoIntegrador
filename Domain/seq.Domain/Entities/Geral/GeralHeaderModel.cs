@@ -1,14 +1,12 @@
-﻿using seq.Domain.Interface.Entities.Geral;
+﻿
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace seq.Domain.Entities.Geral
+namespace seq.Domain.Entities
 {
-    public class GeralHeaderModel: IGeralHeaderModel
+    public class GeralHeaderModel
     {
         public long? HearderId { get; set; }
-        public long? HeaderIdPai { get; set; }
+        public Guid HeaderIdPai { get; set; }
         public string Arquivo { get; set; }
         public int? Linha { get; set; }
         public DateTime Processado { get; set; }

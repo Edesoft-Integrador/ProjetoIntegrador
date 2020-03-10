@@ -3,7 +3,7 @@ using seq.Domain.Interfaces.Repositories;
 
 namespace seq.Domain.Interface.Repositories
 {
-    public interface IGeralDetalheRepository : IRepositoryBase<GeralDetalheModel>
+    public interface IGeralHeaderRepository : IRepositoryBase<GeralHeaderModel>
     {
     }
 }

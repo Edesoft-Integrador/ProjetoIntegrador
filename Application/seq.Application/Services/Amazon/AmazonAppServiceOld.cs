@@ -1,5 +1,5 @@
 ﻿using seq.Domain.Interface.Repositories;
-using seq.Processo.Amazon;
+using seq.Processo;
 using System.IO;
 using System.Threading.Tasks;
 using System.Xml;

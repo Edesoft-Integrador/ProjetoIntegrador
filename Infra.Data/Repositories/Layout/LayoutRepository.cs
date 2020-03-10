@@ -3,7 +3,7 @@ using seq.Domain.Interface.Repositories;
 using seq.Infra.Data.Context;
 using seq.Infra.Data.Repositories;
 
-namespace seq.Infra.Data.Repository
+namespace seq.Infra.Data.Repositories
 {
     public class LayoutRepository : RepositoryBase<LayoutModel>, ILayoutRepository
     {

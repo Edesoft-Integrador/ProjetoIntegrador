@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace seq.Processo.Amazon
+namespace seq.Processo
 {
     public class AmazonGRU5Processo : IAmazonGRU5Processo
     {
@@ -14,13 +14,13 @@ namespace seq.Processo.Amazon
         public AmazonGRU5Processo()
         { }
 
-        public async Task<IEnumerable<AmazonHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
+        public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
         {
             try
             {
-                var lst = new List<AmazonHeaderModel>();
+                var lst = new List<GeralHeaderModel>();
 
-                lst.Add(new AmazonHeaderModel()
+                lst.Add(new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 0,
@@ -55,7 +55,7 @@ namespace seq.Processo.Amazon
                     Campo027 = "countryName"
                 });
 
-                lst.Add(new AmazonHeaderModel()
+                lst.Add(new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 1,
@@ -100,13 +100,13 @@ namespace seq.Processo.Amazon
             }
         }
 
-        public async Task<IEnumerable<AmazonDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
+        public async Task<IEnumerable<GeralDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
         {
             try
             {
-                List<AmazonDetalheModel> lst = new List<AmazonDetalheModel>();
+                List<GeralDetalheModel> lst = new List<GeralDetalheModel>();
 
-                lst.Add(new AmazonDetalheModel()
+                lst.Add(new GeralDetalheModel()
                 {
                     HeaderIdPai = headerIdPai,
                     Linha = 0,
@@ -197,7 +197,7 @@ namespace seq.Processo.Amazon
                 });
                 
                 var lst1 = trans.message.amazonManifest.manifestDetail.SelectMany(x => 
-                       x.shipmentPackageInfo.shipmentPackageItemDetail.Select(y => new AmazonDetalheModel
+                       x.shipmentPackageInfo.shipmentPackageItemDetail.Select(y => new GeralDetalheModel
                  {
                     Linha = 1,
                     HeaderIdPai = headerIdPai,

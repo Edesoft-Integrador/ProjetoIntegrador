@@ -1,16 +1,15 @@
 ﻿
 using seq.Domain.Entities;
-using seq.Domain.Entities.Geral;
 using seq.Domain.Interface.Repositories;
 using seq.Domain.Interface.Services;
 using System.Threading.Tasks;
 
 namespace seq.Domain.Services
 {
-    public class AmazonHeaderService : ServiceBase<GeralHeaderModel>, IAmazonService
+    public class GeralDetalheService : ServiceBase<GeralDetalheModel>, IGeralDetalheService
     {
-        private readonly IGeralHeaderRepository _repository;
-        public AmazonHeaderService(IGeralHeaderRepository repository) : base(repository)
+        private readonly IGeralDetalheRepository _repository;
+        public GeralDetalheService(IGeralDetalheRepository repository) : base(repository)
         {
             _repository = repository;
         }

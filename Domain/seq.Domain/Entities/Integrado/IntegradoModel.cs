@@ -1,12 +1,10 @@
-﻿using seq.Domain.Interface.Entities.Integrado;
+﻿using seq.Domain.Interface.Entities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace seq.Domain.Entities
-{ 
-    public class IntegradoModel : IIntegradoModel
+{
+    public class IntegradoModel : IBaseMovimentoDb
     {
         [Key]
         public long? IntegradoId { get; set;}

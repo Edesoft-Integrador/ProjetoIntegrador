@@ -7,7 +7,7 @@ using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace seq.Infra.Data.Repository
+namespace seq.Infra.Data.Repositories
 {
     public class ArquivoRepository : RepositoryBase<ArquivoModel>, IArquivorepository
     {
@@ -18,7 +18,9 @@ namespace seq.Infra.Data.Repository
         public async Task<IEnumerable> Search(long? id, string descricao)
         {            
             id = id.HasValue ? id : 0;
+
             var sql = string.Format($"EXECUTE dbo.usp_Integrado_Arquivo_Search @ArquivoId={id}, @Descricao='{descricao}'");
+
             return _context.Arquivo.FromSqlRaw(sql).AsNoTracking().ToList(); 
         }
     }
