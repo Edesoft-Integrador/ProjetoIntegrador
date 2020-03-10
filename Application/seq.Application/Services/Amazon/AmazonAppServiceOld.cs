@@ -9,10 +9,10 @@ namespace seq.Application
     public class AmazonAppServiceOld 
     {
 
-        private readonly IAmazonHeaderRepository _contextHeader;
-        private readonly IAmazonDetalheRepository _contextDetalhe;
+        private readonly IGeralHeaderRepository _contextHeader;
+        private readonly IGeralDetalheRepository _contextDetalhe;
 
-        public AmazonAppServiceOld(IAmazonHeaderRepository contextHeader, IAmazonDetalheRepository contextDetalhe)
+        public AmazonAppServiceOld(IGeralHeaderRepository contextHeader, IGeralDetalheRepository contextDetalhe)
         {
             _contextHeader = contextHeader;
             _contextDetalhe = contextDetalhe;

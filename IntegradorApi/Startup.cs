@@ -50,7 +50,7 @@ namespace IntegradorApi
             services.AddScoped<IProcessoService, ProcessoService>();
             services.AddScoped<IIntegradoService, IntegradoService>();
             services.AddScoped<IArquivoService, ArquivoService>();
-            services.AddScoped<IAmazonHeaderService, AmazonHeaderService>();
+            services.AddScoped<IAmazonService, AmazonHeaderService>();
             services.AddScoped<IAmazonDetalheService, AmazonDetalheService>();
 
             services.AddScoped<IDeparaRepository, DeparaRepository>();
@@ -58,12 +58,10 @@ namespace IntegradorApi
             services.AddScoped<IProcessoRepository, ProcessoRepository>();
             services.AddScoped<IIntegradoRepository, IntegradoRepository>();
             services.AddScoped<IArquivorepository, ArquivoRepository>();
-            services.AddScoped<IAmazonHeaderRepository, AmazonHeaderRepository>();
-            services.AddScoped<IAmazonDetalheRepository, AmazonDetalheRepository>();
-
-            services.AddScoped<IAmazonLUFTProcesso, AmazonLUFTProcesso>();
-            services.AddScoped<IAmazonGRU5Processo, AmazonGRU5Processo>();
-            services.AddScoped<IAmazonSELLERSProcesso, AmazonSELLERSProcesso>();
+            services.AddScoped<IGeralHeaderRepository, AmazonHeaderRepository>();
+            services.AddScoped<IGeralDetalheRepository, AmazonDetalheRepository>();
+            services.AddScoped<IAmazonLUFTRepository, AmazonLUFTRepository>();
+            services.AddScoped<IAmazonSellersRepository, AmazonSellersRepository>();
 
             services.AddControllersWithViews()
                     .AddNewtonsoftJson(options =>

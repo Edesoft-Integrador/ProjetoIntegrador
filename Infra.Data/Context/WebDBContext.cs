@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using seq.Domain.Entities;
+using seq.Domain.Entities.Geral;
 
 namespace seq.Infra.Data.Context
 {
@@ -10,10 +11,10 @@ namespace seq.Infra.Data.Context
 
         }
 
-        public DbSet<AmazonDetalheModel> AmazonDetalhe { get; set; }
-        public DbSet<AmazonHeaderModel> AmazonHeader { get; set; }
-        //public DbSet<AmazonLUFTModel> AmazonLUFT { get; set; }
-        //public DbSet<AmazonSellersModel> AmazonSellers { get; set; }
+        public DbSet<GeralDetalheModel> AmazonDetalhe { get; set; }
+        public DbSet<GeralHeaderModel> AmazonHeader { get; set; }
+        public DbSet<AmazonLUFTModel> AmazonLUFT { get; set; }
+        public DbSet<AmazonSellersModel> AmazonSellers { get; set; }
         public DbSet<LayoutModel> Layout { get; set; }
         public DbSet<ArquivoModel> Arquivo { get; set; }
         public DbSet<IntegradoModel> Integrado { get; set; }
