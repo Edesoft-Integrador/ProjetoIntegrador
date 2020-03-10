@@ -238,7 +238,7 @@ namespace seq.Processo.Amazon
 
                             Campo032 = x.shipmentCostInfo.termsOfSale,
                             Campo033 = x.shipmentCostInfo.amazonFreightCost.chargeOrAllowance,
-                            Campo034 = x.shipmentCostInfo.amazonFreightCost.monetaryAmount.Value,
+                            Campo034 = string.Format("{0:0.00#,##}", x.shipmentCostInfo.amazonFreightCost.monetaryAmount.Value),
                             Campo035 = x.shipmentCostInfo.amazonFreightCost.monetaryAmount.currencyISOCode,
                             Campo036 = x.shipmentCostInfo.valueOfGoods.chargeOrAllowance,
                             Campo037 = string.Format("{0:0.00#,##}", x.shipmentCostInfo.valueOfGoods.monetaryAmount.Value),
