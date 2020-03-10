@@ -2,15 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace seq.Domain.Entities
 {
+    [Table("tb_Integrado_Detalhe")]
     public class AmazonDetalheModel : IAmazonDetalheModel
     {
+        public AmazonDetalheModel()
+        { }
+
         [Key]
         public long DetalheId { get; set;}
-        public long HeaderId { get; set;}
+        public Guid HeaderIdPai { get; set;}
         public int Linha { get; set; }
         public string Campo001 { get; set;}
         public string Campo002 { get; set;}

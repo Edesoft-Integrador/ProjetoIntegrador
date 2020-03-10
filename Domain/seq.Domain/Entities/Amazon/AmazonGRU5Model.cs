@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-namespace seq.Domain.Entities
+namespace seq.Domain.Entities.GRU5
 {
 
 
@@ -18,7 +18,6 @@ namespace seq.Domain.Entities
 
         private transmissionMessage messageField;
 
-        [Key]
         private string sendingPartyIDField;
 
         private string receivingPartyIDField;
@@ -1000,9 +999,9 @@ namespace seq.Domain.Entities
     public partial class transmissionMessageAmazonManifestShipmentDetailBrNFe
     {
 
-        private ulong sellerCnpjField;
+        private string sellerCnpjField;
 
-        private ulong customerCnpjCpfField;
+        private string customerCnpjCpfField;
 
         private uint nfeNumberField;
 
@@ -1023,7 +1022,7 @@ namespace seq.Domain.Entities
         private decimal nfeTotalValueField;
 
         /// <remarks/>
-        public ulong sellerCnpj
+        public string sellerCnpj
         {
             get
             {
@@ -1036,7 +1035,7 @@ namespace seq.Domain.Entities
         }
 
         /// <remarks/>
-        public ulong customerCnpjCpf
+        public string customerCnpjCpf
         {
             get
             {
@@ -1182,7 +1181,7 @@ namespace seq.Domain.Entities
 
         private string boroughField;
 
-        private uint zipcodeField;
+        private string zipcodeField;
 
         private string cityField;
 
@@ -1245,7 +1244,7 @@ namespace seq.Domain.Entities
         }
 
         /// <remarks/>
-        public uint zipcode
+        public string zipcode
         {
             get
             {

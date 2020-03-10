@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EFCore.BulkExtensions;
+using System.Transactions;
 
 namespace seq.Infra.Data.Repositories
 {
@@ -20,25 +22,25 @@ namespace seq.Infra.Data.Repositories
 
         public virtual async Task AddRangeAsync(IEnumerable<TEntity> obj)
         {
-            try
-            {
+                try
                 {
-                    await _context.Set<TEntity>().AddRangeAsync(obj);
-                    await _context.SaveChangesAsync();
+                        _context.ChangeTracker.AutoDetectChangesEnabled = false;
+                  await _context.BulkInsertAsync(obj.ToList());
+                //await _context.Set<TEntity>().AddRangeAsync(obj);
+                //await _context.SaveChangesAsync();
                 }
-
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Set<TEntity>().Any())
+                catch (DbUpdateConcurrencyException)
                 {
-                    return;
+                    if (!_context.Set<TEntity>().Any())
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
-                else
-                {
-                    throw;
-                }
-            }
+            
         }
 
         public virtual async Task<long> AddAsync(TEntity obj)
@@ -46,7 +48,7 @@ namespace seq.Infra.Data.Repositories
             try
             {
                     await _context.Set<TEntity>().AddAsync(obj);
-                    await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();             
 
                     var keyName = _context.Model.FindEntityType(typeof(TEntity))
                                                 .FindPrimaryKey().Properties
@@ -73,6 +75,7 @@ namespace seq.Infra.Data.Repositories
             {
                       _context.Entry(obj).State = EntityState.Modified;
                       _context.Update(obj);
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -92,9 +95,10 @@ namespace seq.Infra.Data.Repositories
         {
             try
             {
-                      _context.Entry(obj).State = EntityState.Modified;
-                      _context.UpdateRange(obj);
-                await _context.SaveChangesAsync();
+                //      _context.Entry(obj).State = EntityState.Modified;
+                //await _context.SaveChangesAsync();
+                await _context.BulkUpdateAsync(obj.ToList());
+                
             }
             catch (DbUpdateConcurrencyException)
             {

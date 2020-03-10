@@ -13,6 +13,7 @@ using seq.Domain.Interface.Services;
 using seq.Domain.Interface.Repositories;
 using seq.Applications.Services;
 using seq.Application.Interfaces;
+using seq.Processo.Amazon;
 
 namespace IntegradorApi
 {
@@ -43,8 +44,6 @@ namespace IntegradorApi
             services.AddScoped<IArquivoAppService, ArquivoAppService>();
             services.AddScoped<IAmazonHeaderAppService, AmazonHeaderAppService>();
             services.AddScoped<IAmazonDetalheAppService, AmazonDetalheAppService>();
-            services.AddScoped<IAmazonLUFTAppService, AmazonLUFTAppService>();
-            services.AddScoped<IAmazonSellersAppService, AmazonSellersAppService>();
 
             services.AddScoped<IDeparaService, DeparaService>();
             services.AddScoped<ILayoutService, LayoutService>();
@@ -53,8 +52,6 @@ namespace IntegradorApi
             services.AddScoped<IArquivoService, ArquivoService>();
             services.AddScoped<IAmazonHeaderService, AmazonHeaderService>();
             services.AddScoped<IAmazonDetalheService, AmazonDetalheService>();
-            services.AddScoped<IAmazonLUFTService, AmazonLUFTService>();
-            services.AddScoped<IAmazonSellersService, AmazonSellersService>();
 
             services.AddScoped<IDeparaRepository, DeparaRepository>();
             services.AddScoped<ILayoutRepository, LayoutRepository>();
@@ -63,10 +60,15 @@ namespace IntegradorApi
             services.AddScoped<IArquivorepository, ArquivoRepository>();
             services.AddScoped<IAmazonHeaderRepository, AmazonHeaderRepository>();
             services.AddScoped<IAmazonDetalheRepository, AmazonDetalheRepository>();
-            services.AddScoped<IAmazonLUFTRepository, AmazonLUFTRepository>();
-            services.AddScoped<IAmazonSellersRepository, AmazonSellersRepository>();
 
-            services.AddControllersWithViews();
+            services.AddScoped<IAmazonLUFTProcesso, AmazonLUFTProcesso>();
+            services.AddScoped<IAmazonGRU5Processo, AmazonGRU5Processo>();
+            services.AddScoped<IAmazonSELLERSProcesso, AmazonSELLERSProcesso>();
+
+            services.AddControllersWithViews()
+                    .AddNewtonsoftJson(options =>
+                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                    );
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

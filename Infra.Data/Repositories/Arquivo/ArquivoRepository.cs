@@ -19,7 +19,7 @@ namespace seq.Infra.Data.Repository
         {            
             id = id.HasValue ? id : 0;
             var sql = string.Format($"EXECUTE dbo.usp_Integrado_Arquivo_Search @ArquivoId={id}, @Descricao='{descricao}'");
-            return _context.Arquivo.FromSqlRaw(sql).ToList(); ;
+            return _context.Arquivo.FromSqlRaw(sql).AsNoTracking().ToList(); 
         }
     }
 }

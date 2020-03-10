@@ -7,7 +7,7 @@ namespace seq.Domain.Interface.Entities.Amazon
     public interface IAmazonDetalheModel
     {
         long DetalheId { get; set; }
-        long HeaderId { get; set; }
+        Guid HeaderIdPai { get; set; }
         string Campo001 {get; set;}
         string Campo002 {get; set;}
         string Campo003 {get; set;}

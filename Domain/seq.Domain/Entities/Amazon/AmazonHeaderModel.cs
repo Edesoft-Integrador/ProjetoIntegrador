@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace seq.Domain.Entities
 {
+    [Table("tb_Integrado_Header")]
     public class AmazonHeaderModel
     {
         [Key]
-        public long? Arquivo { get; set; }
+        public long HeaderId { get; set; }
+        public string Arquivo { get; set; }
         public int? Linha { get; set; }
+        public Guid HeaderIdPai { get; set; }
         public string Descricao { get; set; }
         public string Campo001{ get; set;}
         public string Campo002{ get; set;}

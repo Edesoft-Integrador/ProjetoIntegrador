@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using seq.Application.Interfaces;
 
@@ -31,9 +32,9 @@ namespace IntegradorApi.Controllers.Amazon
 
         // POST: api/Amazon
         [HttpPost("AmazonPost")]
-        public void AmazonPost(string value)
+        public async Task<IActionResult> AmazonPost(string value)
         {
-          //  _context.Processa(value);
+            return Ok(_context.ProcessaXML(value));
         }
 
         // PUT: api/Amazon/5
