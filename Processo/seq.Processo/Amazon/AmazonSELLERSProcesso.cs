@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using seq.Domain.Entities.Sellers;
 
-namespace seq.Processo.Amazon
+namespace seq.Processo
 {
     public class AmazonSELLERSProcesso : IAmazonSELLERSProcesso
     {
@@ -199,10 +199,10 @@ namespace seq.Processo.Amazon
                     Linha = 1,
                     Campo001 = trans.receivingPartyID,
                     Campo002 = trans.sendingPartyID,
-                    Campo003 = trans.transmissionCreationDate.ToString(),
-                    Campo004 = trans.transmissionSchemaVersionNumber.ToString(),
+                    Campo003 = string.Format("{0:dd/MM/yyyy}", trans.transmissionCreationDate),
+                    Campo004 = string.Format("{0:0.00#,##}"  , trans.transmissionSchemaVersionNumber),
                     Campo005 = trans.message.amazonManifest.manifestHeader.warehouseLocationID,
-                    Campo006 = trans.message.amazonManifest.manifestHeader.manifestCreateDateTime.ToString(),
+                    Campo006 = string.Format("{0:dd/MM/yyyy}", trans.message.amazonManifest.manifestHeader.manifestCreateDateTime),
                     Campo007 = trans.message.amazonManifest.manifestHeader.loadReferenceID,
                     Campo008 = trans.message.amazonManifest.manifestHeader.trailerName,
                     Campo009 = trans.message.amazonManifest.manifestHeader.carrierInternalID,
@@ -212,7 +212,7 @@ namespace seq.Processo.Amazon
                              : null,
                     Campo012 = trans.message.amazonManifest.manifestHeader.manifestNumber.ToString(),
                     Campo013 = trans.message.amazonManifest.manifestHeader.carrierAccountID,
-                    Campo014 = trans.message.amazonManifest.manifestHeader.shipmentDate.ToString(),
+                    Campo014 = string.Format("{0:dd/MM/yyyy}", trans.message.amazonManifest.manifestHeader.shipmentDate),
                     Campo016 = trans.message.amazonManifest.manifestHeader.currencyCode,
                     Campo017 = trans.message.amazonManifest.manifestHeader.shipFromAddress.AddressType,
                     Campo018 = trans.message.amazonManifest.manifestHeader.shipperInformation.amazonTaxID,
@@ -245,9 +245,9 @@ namespace seq.Processo.Amazon
                 //        //    lista = (AmazonSellersModel.transmission)ser.Deserialize(reader);
                 //        //}
 
-                //        AmazonHeaderModel amazonHeaderModel = new AmazonHeaderModel();
+                //        GeralHeaderModel GeralHeaderModel = new GeralHeaderModel();
 
-                //        amazonHeaderModel = new AmazonHeaderModel()
+                //        GeralHeaderModel = new GeralHeaderModel()
                 //        {
                 //            Arquivo = 0,
                 //            Linha = 0,
@@ -279,50 +279,50 @@ namespace seq.Processo.Amazon
                 //            Campo027 = "countryName"
                 //        };
 
-                //        var headerId = await _contextHeader.AddAsync(amazonHeaderModel);
+                //        var headerId = await _contextHeader.AddAsync(GeralHeaderModel);
 
-                //        amazonHeaderModel.Arquivo = headerId;
-                //        amazonHeaderModel.Linha = 1;
-                //        amazonHeaderModel.Descricao = pasta + " - " + arquivo + " - " + id;
-                //        amazonHeaderModel.Campo001 = lista.receivingPartyID;
-                //        amazonHeaderModel.Campo002 = lista.sendingPartyID;
-                //        amazonHeaderModel.Campo003 = lista.transmissionCreationDate.ToString();
-                //        amazonHeaderModel.Campo004 = lista.transmissionSchemaVersionNumber.ToString();
-                //        amazonHeaderModel.Campo005 = lista.message.amazonManifest.manifestHeader.warehouseLocationID;
-                //        amazonHeaderModel.Campo006 = lista.message.amazonManifest.manifestHeader.manifestCreateDateTime.ToString();
-                //        amazonHeaderModel.Campo007 = lista.message.amazonManifest.manifestHeader.loadReferenceID;
-                //        amazonHeaderModel.Campo008 = lista.message.amazonManifest.manifestHeader.trailerName;
-                //        amazonHeaderModel.Campo009 = lista.message.amazonManifest.manifestHeader.carrierInternalID;
-                //        amazonHeaderModel.Campo010 = lista.message.amazonManifest.manifestHeader.shipmentMethod[0].amazonTechnicalName;
-                //        amazonHeaderModel.Campo011 = null;
+                //        GeralHeaderModel.Arquivo = headerId;
+                //        GeralHeaderModel.Linha = 1;
+                //        GeralHeaderModel.Descricao = pasta + " - " + arquivo + " - " + id;
+                //        GeralHeaderModel.Campo001 = lista.receivingPartyID;
+                //        GeralHeaderModel.Campo002 = lista.sendingPartyID;
+                //        GeralHeaderModel.Campo003 = lista.transmissionCreationDate.ToString();
+                //        GeralHeaderModel.Campo004 = lista.transmissionSchemaVersionNumber.ToString();
+                //        GeralHeaderModel.Campo005 = lista.message.amazonManifest.manifestHeader.warehouseLocationID;
+                //        GeralHeaderModel.Campo006 = lista.message.amazonManifest.manifestHeader.manifestCreateDateTime.ToString();
+                //        GeralHeaderModel.Campo007 = lista.message.amazonManifest.manifestHeader.loadReferenceID;
+                //        GeralHeaderModel.Campo008 = lista.message.amazonManifest.manifestHeader.trailerName;
+                //        GeralHeaderModel.Campo009 = lista.message.amazonManifest.manifestHeader.carrierInternalID;
+                //        GeralHeaderModel.Campo010 = lista.message.amazonManifest.manifestHeader.shipmentMethod[0].amazonTechnicalName;
+                //        GeralHeaderModel.Campo011 = null;
                 //        if (arquivo == "EXPEDITED" && id == "XBRA")
                 //        {
-                //            amazonHeaderModel.Campo011 = lista.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName;
+                //            GeralHeaderModel.Campo011 = lista.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName;
                 //        }
-                //        amazonHeaderModel.Campo012 = lista.message.amazonManifest.manifestHeader.manifestNumber.ToString();
-                //        amazonHeaderModel.Campo013 = lista.message.amazonManifest.manifestHeader.carrierAccountID;
-                //        amazonHeaderModel.Campo014 = lista.message.amazonManifest.manifestHeader.shipmentDate.ToString();
-                //        amazonHeaderModel.Campo016 = lista.message.amazonManifest.manifestHeader.currencyCode;
-                //        amazonHeaderModel.Campo017 = lista.message.amazonManifest.manifestHeader.shipFromAddress.AddressType;
-                //        amazonHeaderModel.Campo018 = lista.message.amazonManifest.manifestHeader.shipperInformation.amazonTaxID;
-                //        amazonHeaderModel.Campo019 = lista.message.amazonManifest.manifestHeader.prepaidCollect;
-                //        amazonHeaderModel.Campo020 = lista.message.amazonManifest.manifestHeader.shipFromAddress.name;
-                //        amazonHeaderModel.Campo021 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine1.ToString();
-                //        amazonHeaderModel.Campo022 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine2.ToString();
-                //        amazonHeaderModel.Campo023 = lista.message.amazonManifest.manifestHeader.shipFromAddress.city;
-                //        amazonHeaderModel.Campo024 = lista.message.amazonManifest.manifestHeader.shipFromAddress.stateChoice.stateProvince;
-                //        amazonHeaderModel.Campo025 = lista.message.amazonManifest.manifestHeader.shipFromAddress.zip.ToString();
-                //        amazonHeaderModel.Campo026 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString();
-                //        amazonHeaderModel.Campo027 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryName.ToString();
+                //        GeralHeaderModel.Campo012 = lista.message.amazonManifest.manifestHeader.manifestNumber.ToString();
+                //        GeralHeaderModel.Campo013 = lista.message.amazonManifest.manifestHeader.carrierAccountID;
+                //        GeralHeaderModel.Campo014 = lista.message.amazonManifest.manifestHeader.shipmentDate.ToString();
+                //        GeralHeaderModel.Campo016 = lista.message.amazonManifest.manifestHeader.currencyCode;
+                //        GeralHeaderModel.Campo017 = lista.message.amazonManifest.manifestHeader.shipFromAddress.AddressType;
+                //        GeralHeaderModel.Campo018 = lista.message.amazonManifest.manifestHeader.shipperInformation.amazonTaxID;
+                //        GeralHeaderModel.Campo019 = lista.message.amazonManifest.manifestHeader.prepaidCollect;
+                //        GeralHeaderModel.Campo020 = lista.message.amazonManifest.manifestHeader.shipFromAddress.name;
+                //        GeralHeaderModel.Campo021 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine1.ToString();
+                //        GeralHeaderModel.Campo022 = lista.message.amazonManifest.manifestHeader.shipFromAddress.addressLine2.ToString();
+                //        GeralHeaderModel.Campo023 = lista.message.amazonManifest.manifestHeader.shipFromAddress.city;
+                //        GeralHeaderModel.Campo024 = lista.message.amazonManifest.manifestHeader.shipFromAddress.stateChoice.stateProvince;
+                //        GeralHeaderModel.Campo025 = lista.message.amazonManifest.manifestHeader.shipFromAddress.zip.ToString();
+                //        GeralHeaderModel.Campo026 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString();
+                //        GeralHeaderModel.Campo027 = lista.message.amazonManifest.manifestHeader.shipFromAddress.countryName.ToString();
 
-                //        headerId = await _contextHeader.AddAsync(amazonHeaderModel);
+                //        headerId = await _contextHeader.AddAsync(GeralHeaderModel);
 
                 //        long detalheId = 0;
 
-                //        List<AmazonDetalheModel> _amazonDetalheModel = new List<AmazonDetalheModel>();
+                //        List<GeralDetalheModel> _GeralDetalheModel = new List<GeralDetalheModel>();
 
-                //        _amazonDetalheModel.Clear();
-                //        _amazonDetalheModel.Add(new AmazonDetalheModel()
+                //        _GeralDetalheModel.Clear();
+                //        _GeralDetalheModel.Add(new GeralDetalheModel()
                 //        {
                 //            HeaderIdPai = headerId,
                 //            Linha = 0,
@@ -411,12 +411,12 @@ namespace seq.Processo.Amazon
                 //            Campo083 = "manifestDetail.shipmentPackageInfo.shipmentPackageItemDetail.countryOfOrigin",
 
                 //        });
-                //        detalheId = await _contextDetalhe.AddAsync(_amazonDetalheModel[0]);
+                //        detalheId = await _contextDetalhe.AddAsync(_GeralDetalheModel[0]);
 
                 //        foreach (var item in lista.message.amazonManifest.manifestDetail)
                 //        {
-                //            _amazonDetalheModel.Clear();
-                //            _amazonDetalheModel.Add(new AmazonDetalheModel()
+                //            _GeralDetalheModel.Clear();
+                //            _GeralDetalheModel.Add(new GeralDetalheModel()
                 //            {
                 //            HeaderIdPai = headerId,
                 //            Linha = 1,
@@ -485,24 +485,24 @@ namespace seq.Processo.Amazon
 
                 //        foreach (var subitem in item.shipmentPackageInfo.shipmentPackageItemDetail)
                 //            {
-                //                _amazonDetalheModel[0].Campo065 = subitem.itemID.ToString();
-                //                _amazonDetalheModel[0].Campo066 = subitem.itemID.type;
-                //                _amazonDetalheModel[0].Campo067 = subitem.itemID.isFreeRep;
-                //                _amazonDetalheModel[0].Campo068 = subitem.itemTitle;
-                //                _amazonDetalheModel[0].Campo069 = subitem.itemQuantity.quantity.ToString();
-                //                _amazonDetalheModel[0].Campo070 = subitem.itemQuantity.quantity.unitOfMeasure;
-                //                _amazonDetalheModel[0].Campo071 = subitem.isHazmat;
-                //                _amazonDetalheModel[0].Campo072 = subitem.itemPriceInfo.itemUnitPrice.chargeOrAllowance;
-                //                _amazonDetalheModel[0].Campo073 = subitem.itemPriceInfo.itemUnitPrice.monetaryAmount.ToString();
-                //                _amazonDetalheModel[0].Campo074 = subitem.itemPriceInfo.itemUnitPrice.monetaryAmount.currencyISOCode;
-                //                _amazonDetalheModel[0].Campo075 = subitem.itemPriceInfo.itemExtendedPrice.chargeOrAllowance;
-                //                _amazonDetalheModel[0].Campo076 = subitem.itemPriceInfo.itemExtendedPrice.monetaryAmount.ToString();
-                //                _amazonDetalheModel[0].Campo077 = subitem.itemPriceInfo.itemExtendedPrice.monetaryAmount.currencyISOCode;
-                //                _amazonDetalheModel[0].Campo080 = subitem.harmonizedTariffNumber;
-                //                _amazonDetalheModel[0].Campo081 = subitem.harmonizedTariffDescription;
-                //                _amazonDetalheModel[0].Campo082 = subitem.countryOfOrigin;
+                //                _GeralDetalheModel[0].Campo065 = subitem.itemID.ToString();
+                //                _GeralDetalheModel[0].Campo066 = subitem.itemID.type;
+                //                _GeralDetalheModel[0].Campo067 = subitem.itemID.isFreeRep;
+                //                _GeralDetalheModel[0].Campo068 = subitem.itemTitle;
+                //                _GeralDetalheModel[0].Campo069 = subitem.itemQuantity.quantity.ToString();
+                //                _GeralDetalheModel[0].Campo070 = subitem.itemQuantity.quantity.unitOfMeasure;
+                //                _GeralDetalheModel[0].Campo071 = subitem.isHazmat;
+                //                _GeralDetalheModel[0].Campo072 = subitem.itemPriceInfo.itemUnitPrice.chargeOrAllowance;
+                //                _GeralDetalheModel[0].Campo073 = subitem.itemPriceInfo.itemUnitPrice.monetaryAmount.ToString();
+                //                _GeralDetalheModel[0].Campo074 = subitem.itemPriceInfo.itemUnitPrice.monetaryAmount.currencyISOCode;
+                //                _GeralDetalheModel[0].Campo075 = subitem.itemPriceInfo.itemExtendedPrice.chargeOrAllowance;
+                //                _GeralDetalheModel[0].Campo076 = subitem.itemPriceInfo.itemExtendedPrice.monetaryAmount.ToString();
+                //                _GeralDetalheModel[0].Campo077 = subitem.itemPriceInfo.itemExtendedPrice.monetaryAmount.currencyISOCode;
+                //                _GeralDetalheModel[0].Campo080 = subitem.harmonizedTariffNumber;
+                //                _GeralDetalheModel[0].Campo081 = subitem.harmonizedTariffDescription;
+                //                _GeralDetalheModel[0].Campo082 = subitem.countryOfOrigin;
 
-                //                detalheId = await _contextDetalhe.AddAsync(_amazonDetalheModel[0]);
+                //                detalheId = await _contextDetalhe.AddAsync(_GeralDetalheModel[0]);
                 //            }
                 //        }
                 //    }

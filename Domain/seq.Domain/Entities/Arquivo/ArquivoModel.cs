@@ -1,4 +1,5 @@
-﻿using seq.Domain.Interface.Entities;
+﻿
+using seq.Domain.Interface.Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
 

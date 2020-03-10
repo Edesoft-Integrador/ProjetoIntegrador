@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace seq.Processo.Amazon
+namespace seq.Processo
 {
     public class AmazonLUFTProcesso : IAmazonLUFTProcesso
     {
@@ -17,7 +17,7 @@ namespace seq.Processo.Amazon
             {
                 var lst = new List<GeralHeaderModel>();
 
-                var amazonHeaderModelTitulo = new GeralHeaderModel()
+                var GeralHeaderModelTitulo = new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 0,
@@ -33,7 +33,7 @@ namespace seq.Processo.Amazon
                     Campo008 = "cep"
                 };
 
-                var amazonHeaderModelDtatalhe = new GeralHeaderModel()
+                var GeralHeaderModelDtatalhe = new GeralHeaderModel()
                 {
                     Arquivo = nomeArquivo,
                     Linha = 0,
@@ -49,8 +49,8 @@ namespace seq.Processo.Amazon
                     Campo008 = "06423080",
                 };
 
-                lst.Add(amazonHeaderModelTitulo);
-                lst.Add(amazonHeaderModelDtatalhe);
+                lst.Add(GeralHeaderModelTitulo);
+                lst.Add(GeralHeaderModelDtatalhe);
 
                 return lst;
             }
@@ -225,9 +225,9 @@ namespace seq.Processo.Amazon
         //        //}
 
 
-        //        headerId = await _contextHeader.AddAsync(amazonHeaderModel1);
+        //        headerId = await _contextHeader.AddAsync(GeralHeaderModel1);
 
-        //        AmazonDetalheModel amazonDetalheModel = new AmazonDetalheModel()
+        //        GeralDetalheModel GeralDetalheModel = new GeralDetalheModel()
         //        {
         //            HeaderIdPai = headerId,
         //            Linha = 0,
@@ -293,11 +293,11 @@ namespace seq.Processo.Amazon
         //            Campo060 = "prodPredominante.CFOP",
         //            Campo061 = "prodPredominante.vProd",
         //        };
-        //        var detalheId = await _contextDetalhe.AddAsync(amazonDetalheModel);
+        //        var detalheId = await _contextDetalhe.AddAsync(GeralDetalheModel);
 
         //        foreach (var subitem in lista.message.TrackingInfo.coletaDetalhe.notaFiscal)
         //        {
-        //            var detalhes = new AmazonDetalheModel()
+        //            var detalhes = new GeralDetalheModel()
         //            {
         //                HeaderIdPai = headerId,
         //                Linha = 1,

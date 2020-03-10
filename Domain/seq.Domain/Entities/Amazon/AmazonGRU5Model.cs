@@ -2030,7 +2030,7 @@ namespace seq.Domain.Entities.GRU5
 
         private string encryptedShipmentIDField;
 
-        private byte packageIDField;
+        private int packageIDField;
 
         private string trackingIDField;
 
@@ -2061,7 +2061,7 @@ namespace seq.Domain.Entities.GRU5
         }
 
         /// <remarks/>
-        public byte packageID
+        public int packageID
         {
             get
             {

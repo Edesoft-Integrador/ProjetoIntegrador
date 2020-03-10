@@ -5,15 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using static seq.Infra.BancoAcesso.Geral;
-using seq.Infra.Data.Repository;
-using seq.Domain.Services;
-using Microsoft.EntityFrameworkCore;
-using seq.Infra.Data.Context;
-using seq.Domain.Interface.Services;
-using seq.Domain.Interface.Repositories;
-using seq.Applications.Services;
-using seq.Application.Interfaces;
-using seq.Processo.Amazon;
+
+using IntegradorApi.Configurations;
 
 namespace IntegradorApi
 {
@@ -33,36 +26,10 @@ namespace IntegradorApi
             services.AddControllers();
 
 
-            services.Configure<DbConexao>(Configuration.GetSection("ConnectionStrings"));
+            //services.Configure<DbConexao>(Configuration.GetSection("ConnectionStrings"));
 
-            services.AddDbContext<WebDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddScoped<IDeparaAppService, DeparaAppService>();
-            services.AddScoped<ILayoutAppService, LayoutAppService>();
-            services.AddScoped<IProcessoAppService, ProcessoAppService>();
-            services.AddScoped<IIntegradoAppService, IntegradoAppService>();
-            services.AddScoped<IArquivoAppService, ArquivoAppService>();
-            services.AddScoped<IAmazonAppService, AmazonAppService>();
-
-            services.AddScoped<IDeparaService, DeparaService>();
-            services.AddScoped<ILayoutService, LayoutService>();
-            services.AddScoped<IProcessoService, ProcessoService>();
-            services.AddScoped<IIntegradoService, IntegradoService>();
-            services.AddScoped<IArquivoService, ArquivoService>();
-            services.AddScoped<IGeralHeaderService, GeralHeaderService>();
-            services.AddScoped<IGeralDetalheService, GeralDetalheService>();
-
-            services.AddScoped<IDeparaRepository, DeparaRepository>();
-            services.AddScoped<ILayoutRepository, LayoutRepository>();
-            services.AddScoped<IProcessoRepository, ProcessoRepository>();
-            services.AddScoped<IIntegradoRepository, IntegradoRepository>();
-            services.AddScoped<IArquivorepository, ArquivoRepository>();
-            services.AddScoped<IGeralHeaderRepository, GeralHeaderRepository>();
-            services.AddScoped<IGeralDetalheRepository, GeralDetalheRepository>();
-
-            services.AddScoped<IAmazonLUFTProcesso, AmazonLUFTProcesso>();
-            services.AddScoped<IAmazonGRU5Processo, AmazonGRU5Processo>();
-            services.AddScoped<IAmazonSELLERSProcesso, AmazonSELLERSProcesso>();
+            services.AddDatabaseSetup(Configuration);
+            services.AddDependencyInjectionSetup();
 
             services.AddControllersWithViews()
                     .AddNewtonsoftJson(options =>

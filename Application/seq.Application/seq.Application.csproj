@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\seq.DataAccess\seq.DataAccess.csproj" />
     <ProjectReference Include="..\..\Domain\seq.Domain\seq.Domain.csproj" />
     <ProjectReference Include="..\..\Processo\seq.Processo\seq.Processo.csproj" />
   </ItemGroup>

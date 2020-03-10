@@ -4,7 +4,7 @@ using seq.Domain.Interface.Services;
 using seq.Application.Services;
 using seq.Application.Interfaces;
 
-namespace seq.Applications.Services
+namespace seq.Application.Services
 {
     public class LayoutAppService : AppServiceBase<LayoutModel>, ILayoutAppService
     {

@@ -4,7 +4,7 @@ using seq.Domain.Interface.Services;
 using seq.Application.Services;
 using seq.Application.Interfaces;
 
-namespace seq.Applications.Services
+namespace seq.Application.Services
 {
     public class IntegradoAppService : AppServiceBase<IntegradoModel>, IIntegradoAppService
     {

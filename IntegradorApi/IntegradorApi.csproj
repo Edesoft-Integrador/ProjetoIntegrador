@@ -27,18 +27,26 @@
     <Compile Remove="ClientApp\src\NovaPasta1\**" />
     <Compile Remove="ClientApp\src\NovaPasta2\**" />
     <Compile Remove="ClientApp\src\NovaPasta\**" />
+    <Compile Remove="Controllers\NovaPasta\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="ClientApp\src\NovaPasta1\**" />
     <Content Remove="ClientApp\src\NovaPasta2\**" />
     <Content Remove="ClientApp\src\NovaPasta\**" />
+    <Content Remove="Controllers\NovaPasta\**" />
     <EmbeddedResource Remove="ClientApp\src\NovaPasta1\**" />
     <EmbeddedResource Remove="ClientApp\src\NovaPasta2\**" />
     <EmbeddedResource Remove="ClientApp\src\NovaPasta\**" />
+    <EmbeddedResource Remove="Controllers\NovaPasta\**" />
     <None Remove="$(SpaRoot)**" />
     <None Remove="ClientApp\src\NovaPasta1\**" />
     <None Remove="ClientApp\src\NovaPasta2\**" />
     <None Remove="ClientApp\src\NovaPasta\**" />
+    <None Remove="Controllers\NovaPasta\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="Controllers\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,8 +55,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\seq.Application\seq.Application.csproj" />
-    <ProjectReference Include="..\Data\seq.DataAccess\seq.DataAccess.csproj" />
     <ProjectReference Include="..\Domain\seq.Domain\seq.Domain.csproj" />
+    <ProjectReference Include="..\Infra.CrossCutting.IoC\seq.infra.CrossCutting.IoC\seq.infra.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Infra.Data\seq.Infra.Data.csproj" />
     <ProjectReference Include="..\Infra\seq.Infra\seq.Infra.csproj" />
   </ItemGroup>

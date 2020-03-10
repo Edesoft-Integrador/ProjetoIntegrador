@@ -6,7 +6,7 @@ using seq.Application.Interfaces;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace seq.Applications.Services
+namespace seq.Application.Services
 {
     public class ArquivoAppService : AppServiceBase<ArquivoModel>, IArquivoAppService
     {
