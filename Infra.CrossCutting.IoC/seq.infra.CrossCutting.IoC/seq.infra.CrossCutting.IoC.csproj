@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\seq.Application\seq.Application.csproj" />
+    <ProjectReference Include="..\..\Infra.CrossCutting.Email\seq.Infra.CrossCutting.Email.csproj" />
     <ProjectReference Include="..\..\Infra.Data\seq.Infra.Data.csproj" />
   </ItemGroup>
 

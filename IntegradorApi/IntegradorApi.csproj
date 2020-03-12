@@ -59,6 +59,7 @@
     <ProjectReference Include="..\Infra.CrossCutting.IoC\seq.infra.CrossCutting.IoC\seq.infra.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Infra.Data\seq.Infra.Data.csproj" />
     <ProjectReference Include="..\Infra\seq.Infra\seq.Infra.csproj" />
+    <ProjectReference Include="..\seq.Infra.CrossCutting.Log\seq.Infra.CrossCutting.Log.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

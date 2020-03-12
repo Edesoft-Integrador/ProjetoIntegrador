@@ -24,12 +24,12 @@ namespace IntegradorApi
         {
 
             services.AddControllers();
-
-
             //services.Configure<DbConexao>(Configuration.GetSection("ConnectionStrings"));
 
             services.AddDatabaseSetup(Configuration);
+            services.AddEmailSetup(Configuration);
             services.AddDependencyInjectionSetup();
+            
 
             services.AddControllersWithViews()
                     .AddNewtonsoftJson(options =>

@@ -6,6 +6,7 @@ using seq.Application.Services;
 using seq.Domain.Interface.Repositories;
 using seq.Domain.Interface.Services;
 using seq.Domain.Services;
+using seq.Infra.CrossCutting.Email;
 using seq.Infra.Data.Repositories;
 using seq.Processo;
 
@@ -22,6 +23,8 @@ namespace seq.Infra.CrossCutting.IoC
             //});
 
             //services.AddSingleton(typeof(IMapper), configuration.CreateMapper());
+
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddScoped<IDeparaAppService, DeparaAppService>();
             services.AddScoped<ILayoutAppService, LayoutAppService>();
