@@ -3,13 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using seq.Domain.Entities.Sellers;
+using Microsoft.Extensions.Logging;
 
 namespace seq.Processo
 {
     public class AmazonSELLERSProcesso : IAmazonSELLERSProcesso
     {
-        public AmazonSELLERSProcesso()
-        {}
+        private readonly ILogger<AmazonSELLERSProcesso> _logger;
+        public AmazonSELLERSProcesso(ILogger<AmazonSELLERSProcesso> logger)
+        {
+            _logger = logger;
+        }
 
         public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
         {
@@ -91,6 +95,10 @@ namespace seq.Processo
 
             } catch(Exception e)
             {
+                _logger.LogError(e.Message, "It seems the exception happened. :(");
+                _logger.LogWarning(e.Message, "This is your last warning!");
+                _logger.LogInformation(e.Message, "And this is fatal error...");
+
                 return null;
             }
         }
@@ -230,6 +238,10 @@ namespace seq.Processo
             }
             catch (Exception e)
             {
+                _logger.LogError(e.Message, "It seems the exception happened. :(");
+                _logger.LogWarning(e.Message, "This is your last warning!");
+                _logger.LogInformation(e.Message, "And this is fatal error...");
+
                 return null;
             }
         }

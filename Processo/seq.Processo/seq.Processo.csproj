@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\seq.Domain\seq.Domain.csproj" />
+    <ProjectReference Include="..\..\Infra.CrossCutting.Logs\seq.Infra.CrossCutting.Logs.csproj" />
   </ItemGroup>
 
 </Project>

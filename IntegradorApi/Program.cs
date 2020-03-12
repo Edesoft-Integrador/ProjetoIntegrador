@@ -16,7 +16,7 @@ namespace IntegradorApi
         {
             //CreateHostBuilder(args).Build().Run();
 
-            var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+            var logger = NLog.Web.NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
             try
             {
                 logger.Debug("init main");
@@ -46,7 +46,7 @@ namespace IntegradorApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                   webBuilder.UseStartup<Startup>();
-              })
+                })
                 .ConfigureLogging(logging =>
                 {
                   logging.ClearProviders();

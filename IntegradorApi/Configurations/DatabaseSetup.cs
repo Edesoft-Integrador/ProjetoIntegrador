@@ -13,7 +13,7 @@ namespace IntegradorApi.Configurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddDbContext<WebDBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContextPool<WebDBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
     }
 }

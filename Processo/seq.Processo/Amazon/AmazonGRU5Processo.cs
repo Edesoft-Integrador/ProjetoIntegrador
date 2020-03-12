@@ -5,14 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace seq.Processo
-{
+{  
+
     public class AmazonGRU5Processo : IAmazonGRU5Processo
     {
+        private readonly ILogger<AmazonGRU5Processo> _logger;
 
-        public AmazonGRU5Processo()
-        { }
+        public AmazonGRU5Processo(ILogger<AmazonGRU5Processo> logger)
+        {
+            _logger = logger;
+        }
 
         public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
         {
@@ -96,6 +101,10 @@ namespace seq.Processo
             }
             catch(Exception e)
             {
+                _logger.LogError(e.Message,"It seems the exception happened. :(");
+                _logger.LogWarning(e.Message,"This is your last warning!");
+                _logger.LogInformation(e.Message,"And this is fatal error...");
+
                 return null;
             }
         }
@@ -296,6 +305,10 @@ namespace seq.Processo
 
             } catch(Exception e)
             {
+                _logger.LogError(e.Message, "It seems the exception happened. :(");
+                _logger.LogWarning(e.Message, "This is your last warning!");
+                _logger.LogInformation(e.Message, "And this is fatal error...");
+
                 return null;
             }
         }

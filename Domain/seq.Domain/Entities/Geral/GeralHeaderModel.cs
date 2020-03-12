@@ -1,10 +1,14 @@
 ﻿
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace seq.Domain.Entities
 {
+    [Table("tb_Integrado_Header")]
     public class GeralHeaderModel
     {
+        [Key]
         public long? HearderId { get; set; }
         public Guid HeaderIdPai { get; set; }
         public string Arquivo { get; set; }

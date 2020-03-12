@@ -7,5 +7,7 @@ namespace seq.Application.Interfaces
     public interface IArquivoAppService : IAppServiceBase<ArquivoModel>
     {
         Task<IEnumerable> Search(long? id, string descricao);
+
+        Task<IEnumerable> SearchTeste(long? id, string descricao);
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using seq.Domain.Entities;
 using seq.Domain.Entities.LUFT;
 using System;
@@ -8,8 +9,11 @@ namespace seq.Processo
 {
     public class AmazonLUFTProcesso : IAmazonLUFTProcesso
     {
-        public AmazonLUFTProcesso()
-        {}
+        private readonly ILogger<AmazonLUFTProcesso> _logger;
+        public AmazonLUFTProcesso(ILogger<AmazonLUFTProcesso> logger)
+        {
+            _logger = logger;
+        }
 
         public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo)
         {
@@ -56,6 +60,9 @@ namespace seq.Processo
             }
             catch (Exception e)
             {
+                _logger.LogError(e.Message, "It seems the exception happened. :(");
+                _logger.LogWarning(e.Message, "This is your last warning!");
+                _logger.LogInformation(e.Message, "And this is fatal error...");
                 return null;
             }
         }
@@ -209,6 +216,10 @@ namespace seq.Processo
             }
             catch (Exception e)
             {
+                _logger.LogError(e.Message, "It seems the exception happened. :(");
+                _logger.LogWarning(e.Message, "This is your last warning!");
+                _logger.LogInformation(e.Message, "And this is fatal error...");
+
                 return null;
             }
            

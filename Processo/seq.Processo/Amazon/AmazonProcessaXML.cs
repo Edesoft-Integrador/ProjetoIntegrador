@@ -1,4 +1,5 @@
-﻿using seq.Domain.Interface.Services;
+﻿using Microsoft.Extensions.Logging;
+using seq.Domain.Interface.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,7 @@ namespace seq.Processo
         private readonly IAmazonGRU5Processo _amazonGRU5Processo;
         private readonly IAmazonSELLERSProcesso _amazonSELLERSProcesso;
         private readonly IAmazonLUFTProcesso _AmazonLUFTProcesso;
+        private readonly ILogger<AmazonProcessaXML> _logger;
 
         public AmazonProcessaXML
         (
@@ -23,6 +25,7 @@ namespace seq.Processo
           , IAmazonGRU5Processo amazonGRU5Processo
           , IAmazonSELLERSProcesso amazonSELLERSProcesso
           , IAmazonLUFTProcesso amazonLUFTProcesso
+          , ILogger<AmazonProcessaXML> logger
         )
         {
             _geralHeaderService = serviceBase;
@@ -30,6 +33,7 @@ namespace seq.Processo
             _amazonGRU5Processo = amazonGRU5Processo;
             _amazonSELLERSProcesso = amazonSELLERSProcesso;
             _AmazonLUFTProcesso = amazonLUFTProcesso;
+            _logger = logger;
         }
 
         public async Task<int> ProcessaXML(string value)
@@ -55,10 +59,13 @@ namespace seq.Processo
                     await _geralDetalheService.AddRangeAsync(await _AmazonLUFTProcesso.Detalhe(trans, HeaderIdPai));
                     return 0;
 
-
                 }
                 catch (Exception e)
                 {
+                    _logger.LogError(e.Message, "It seems the exception happened. :(");
+                    _logger.LogWarning(e.Message, "This is your last warning!");
+                    _logger.LogInformation(e.Message, "And this is fatal error...");
+
                     return 1;
                 }
             }
@@ -94,6 +101,10 @@ namespace seq.Processo
                     }
                     catch (Exception e)
                     {
+                        _logger.LogError(e.Message, "It seems the exception happened. :(");
+                        _logger.LogWarning(e.Message, "This is your last warning!");
+                        _logger.LogInformation(e.Message, "And this is fatal error...");
+
                         return 1;
                     }
 
@@ -125,6 +136,10 @@ namespace seq.Processo
                     }
                     catch (Exception e)
                     {
+                        _logger.LogError(e.Message, "It seems the exception happened. :(");
+                        _logger.LogWarning(e.Message, "This is your last warning!");
+                        _logger.LogInformation(e.Message, "And this is fatal error...");
+
                         return 1;
                     }
 

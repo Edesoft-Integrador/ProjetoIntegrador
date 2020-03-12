@@ -51,16 +51,16 @@ namespace IntegradorApi.Controllers.Amazon
                 var Assunto = "Teste email Sequoia";
                 var Mensagem = "Aeee Funcionou";
 
-                try
-                {
-                    throw new Exception("This is one badass exception. :)");
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError("It seems the exception happened. :(");
-                    _logger.LogWarning("This is your last warning!");
-                    _logger.LogInformation("And this is fatal error...");
-                }
+                //try
+                //{
+                //    throw new Exception("This is one badass exception. :)");
+                //}
+                //catch (Exception ex)
+                //{
+                //    _logger.LogError("It seems the exception happened. :(");
+                //    _logger.LogWarning("This is your last warning!");
+                //    _logger.LogInformation("And this is fatal error...");
+                //}
                                
                 await TesteEnvioEmail(Destino, Assunto, Mensagem);
 

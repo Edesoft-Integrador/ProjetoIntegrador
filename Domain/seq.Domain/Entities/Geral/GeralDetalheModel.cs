@@ -1,12 +1,16 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace seq.Domain.Entities
 {
+    [Table("tb_Integrado_Detalhe")]
     public class GeralDetalheModel
     {
+        [Key]
         public long DetalheId { get; set; }
         public Guid HeaderIdPai { get; set; }
         public int Linha { get; set; }

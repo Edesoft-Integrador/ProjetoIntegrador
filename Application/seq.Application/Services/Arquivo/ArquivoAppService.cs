@@ -22,5 +22,10 @@ namespace seq.Application.Services
         {
             return await _serviceBase.Search(id, descricao);
         }
+
+        public async Task<IEnumerable> SearchTeste(long? id, string descricao)
+        {
+            return await _serviceBase.SearchTeste(id, descricao);
+        }
     }
 }
