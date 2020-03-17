@@ -9,5 +9,7 @@ namespace seq.Application.Interfaces
         Task<IEnumerable> Search(long? id, string descricao);
 
         Task<IEnumerable> SearchTeste(long? id, string descricao);
+
+        Task<IEnumerable> SearchTesteADO(long? id, string descricao);
     }
 }

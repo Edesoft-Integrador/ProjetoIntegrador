@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using seq.Domain.Entities;
 using seq.Domain.Entities.LUFT;
+using seq.Domain.Interface.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,38 +11,42 @@ namespace seq.Processo
     public class AmazonLUFTProcesso : IAmazonLUFTProcesso
     {
         private readonly ILogger<AmazonLUFTProcesso> _logger;
-        public AmazonLUFTProcesso(ILogger<AmazonLUFTProcesso> logger)
+        private readonly IGeralHeaderService _headerService;
+        private readonly IGeralDetalheService _detalherService;
+
+        public AmazonLUFTProcesso(ILogger<AmazonLUFTProcesso> logger, IGeralHeaderService headerService, IGeralDetalheService detalherService)
         {
             _logger = logger;
+            _headerService = headerService;
+            _detalherService = detalherService;
         }
 
-        public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo)
+        public async Task Processa(transmission trans, string nomeArquivo)
         {
             try
             {
-                var lst = new List<GeralHeaderModel>();
+                var headerId = await _headerService.AddAsync(
+                    new GeralHeaderModel()
+                    {
+                        RefHeader = 0,
+                        Arquivo = nomeArquivo,
+                        Linha = 0,
+                        Descricao = null,
+                        Campo001 = "cnpjRemetente",
+                        Campo002 = "inscricaoestadual",
+                        Campo003 = "razaosocial",
+                        Campo004 = "endereco",
+                        Campo005 = "bairro",
+                        Campo006 = "cidade",
+                        Campo007 = "uf",
+                        Campo008 = "cep"
+                    });
 
-                var GeralHeaderModelTitulo = new GeralHeaderModel()
+                await _headerService.AddAsync(new GeralHeaderModel()
                 {
+                    RefHeader = headerId,
                     Arquivo = nomeArquivo,
-                    Linha = 0,
-                    HeaderIdPai = headerIdPai,
-                    Descricao = null,
-                    Campo001 = "cnpjRemetente",
-                    Campo002 = "inscricaoestadual",
-                    Campo003 = "razaosocial",
-                    Campo004 = "endereco",
-                    Campo005 = "bairro",
-                    Campo006 = "cidade",
-                    Campo007 = "uf",
-                    Campo008 = "cep"
-                };
-
-                var GeralHeaderModelDtatalhe = new GeralHeaderModel()
-                {
-                    Arquivo = nomeArquivo,
-                    Linha = 0,
-                    HeaderIdPai = headerIdPai,
+                    Linha = 1,
                     Descricao = null,
                     Campo001 = trans.message.TrackingInfo.coletaDetalhe.cnpjRemetente,
                     Campo002 = "206319534110",
@@ -51,32 +56,13 @@ namespace seq.Processo
                     Campo006 = "BARUERI",
                     Campo007 = "SP",
                     Campo008 = "06423080",
-                };
-
-                lst.Add(GeralHeaderModelTitulo);
-                lst.Add(GeralHeaderModelDtatalhe);
-
-                return lst;
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e.Message, "It seems the exception happened. :(");
-                _logger.LogWarning(e.Message, "This is your last warning!");
-                _logger.LogInformation(e.Message, "And this is fatal error...");
-                return null;
-            }
-        }
-
-        public async Task<IEnumerable<GeralDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
-        {
-
-            try
-            {
+                });
+                
                 List<GeralDetalheModel> lst = new List<GeralDetalheModel>();
 
                 lst.Add(new GeralDetalheModel()
                 {
-                    HeaderIdPai = headerIdPai,
+                    HeaderId = headerId,
                     Linha = 0,
                     Campo001 = "cnpjDepositante",
                     Campo002 = "cnpjRemetente",
@@ -145,7 +131,7 @@ namespace seq.Processo
                 {
                     lst.Add(new GeralDetalheModel()
                     {
-                        HeaderIdPai = headerIdPai,
+                        HeaderId = headerId,
                         Linha = 1,
                         Campo001 = trans.message.TrackingInfo.coletaDetalhe.cnpjDepositante,
                         Campo002 = trans.message.TrackingInfo.coletaDetalhe.cnpjRemetente,
@@ -212,7 +198,7 @@ namespace seq.Processo
 
                 };
 
-                return lst;
+                await _detalherService.AddRangeAsync(lst);
             }
             catch (Exception e)
             {
@@ -220,7 +206,6 @@ namespace seq.Processo
                 _logger.LogWarning(e.Message, "This is your last warning!");
                 _logger.LogInformation(e.Message, "And this is fatal error...");
 
-                return null;
             }
            
         }

@@ -24,5 +24,10 @@ namespace seq.Domain.Services
         {
             return await _repository.SearchTeste(id, descricao);
         }
+
+        public async Task<IEnumerable> SearchTesteADO(long? id, string descricao)
+        {
+            return await _repository.SearchTesteADO(id, descricao);
+        }
     }
 }

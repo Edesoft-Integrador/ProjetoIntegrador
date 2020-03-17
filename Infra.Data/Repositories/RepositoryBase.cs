@@ -24,11 +24,14 @@ namespace seq.Infra.Data.Repositories
         {
                 try
                 {
-                        _context.ChangeTracker.AutoDetectChangesEnabled = false;
-                  await _context.BulkInsertAsync(obj.ToList());
+                _context.ChangeTracker.LazyLoadingEnabled = false;
+                _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+                _context.ChangeTracker.AutoDetectChangesEnabled = false;
+
+                await _context.BulkInsertAsync(obj.ToList());
                 //await _context.Set<TEntity>().AddRangeAsync(obj);
                 //await _context.SaveChangesAsync();
-                }
+            }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!_context.Set<TEntity>().Any())
@@ -47,14 +50,15 @@ namespace seq.Infra.Data.Repositories
         {
             try
             {
-                    await _context.Set<TEntity>().AddAsync(obj);
-                    await _context.SaveChangesAsync();             
 
-                    var keyName = _context.Model.FindEntityType(typeof(TEntity))
-                                                .FindPrimaryKey().Properties
-                                                .Select(x => x.Name).Single();
+                _context.ChangeTracker.LazyLoadingEnabled = false;
+                _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+                _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
-                return (long)obj.GetType().GetProperty(keyName).GetValue(obj, null);
+
+                await _context.Set<TEntity>().AddAsync(obj);
+                return (long)await _context.SaveChangesAsync();
+
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -136,7 +140,7 @@ namespace seq.Infra.Data.Repositories
 
         public virtual async Task<bool> AnyAsync(TEntity obj)
         {
-            return await _context.Set<TEntity>().AnyAsync(x => x == obj);
+            return await _context.Set<TEntity>().AsNoTracking().AnyAsync(x => x == obj);
         }
 
         #endregion

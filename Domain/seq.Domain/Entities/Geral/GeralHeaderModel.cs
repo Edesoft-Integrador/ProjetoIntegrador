@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,13 +9,20 @@ namespace seq.Domain.Entities
     [Table("tb_Integrado_Header")]
     public class GeralHeaderModel
     {
+        public GeralHeaderModel()
+        {
+           // Detalhes = new HashSet<GeralDetalheModel>();
+        }
+
         [Key]
-        public long? HearderId { get; set; }
-        public Guid HeaderIdPai { get; set; }
+        public long HeaderId { get; set; }       
+        public long RefHeader { get; set; }  
         public string Arquivo { get; set; }
-        public int? Linha { get; set; }
-        public DateTime Processado { get; set; }
+        public int Linha { get; set; }
+        public DateTime? Processado { get; set; }
         public string Descricao { get; set; }
+
+        #region Campos
         public string Campo001 { get; set; }
         public string Campo002 { get; set; }
         public string Campo003 { get; set; }
@@ -42,5 +50,6 @@ namespace seq.Domain.Entities
         public string Campo025 { get; set; }
         public string Campo026 { get; set; }
         public string Campo027 { get; set; }
+        #endregion
     }
 }

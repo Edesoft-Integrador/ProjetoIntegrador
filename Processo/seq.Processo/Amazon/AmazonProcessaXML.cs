@@ -11,12 +11,12 @@ namespace seq.Processo
 {
     public class AmazonProcessaXML : IAmazonProcessaXML
     {
-        private readonly IGeralHeaderService _geralHeaderService;
-        private readonly IGeralDetalheService _geralDetalheService;
         private readonly IAmazonGRU5Processo _amazonGRU5Processo;
         private readonly IAmazonSELLERSProcesso _amazonSELLERSProcesso;
         private readonly IAmazonLUFTProcesso _AmazonLUFTProcesso;
         private readonly ILogger<AmazonProcessaXML> _logger;
+        private readonly IGeralHeaderService _headerService;
+        private readonly IGeralDetalheService _detalherService;
 
         public AmazonProcessaXML
         (
@@ -26,14 +26,16 @@ namespace seq.Processo
           , IAmazonSELLERSProcesso amazonSELLERSProcesso
           , IAmazonLUFTProcesso amazonLUFTProcesso
           , ILogger<AmazonProcessaXML> logger
+          , IGeralHeaderService headerService
+          , IGeralDetalheService detalherService
         )
         {
-            _geralHeaderService = serviceBase;
-            _geralDetalheService = geralDetalheService;
             _amazonGRU5Processo = amazonGRU5Processo;
             _amazonSELLERSProcesso = amazonSELLERSProcesso;
             _AmazonLUFTProcesso = amazonLUFTProcesso;
             _logger = logger;
+            _headerService = headerService;
+            _detalherService = detalherService;
         }
 
         public async Task<int> ProcessaXML(string value)
@@ -53,10 +55,7 @@ namespace seq.Processo
                         trans = (seq.Domain.Entities.LUFT.transmission)ser.Deserialize(reader);
                     }
 
-                    var HeaderIdPai = Guid.NewGuid();
-
-                    await _geralHeaderService.AddRangeAsync(await _AmazonLUFTProcesso.Header(trans, HeaderIdPai, nomearquivo));
-                    await _geralDetalheService.AddRangeAsync(await _AmazonLUFTProcesso.Detalhe(trans, HeaderIdPai));
+                    await _AmazonLUFTProcesso.Processa(trans, nomearquivo);
                     return 0;
 
                 }
@@ -89,13 +88,7 @@ namespace seq.Processo
 
                         var descricao = "GRU5" + " - " + amazonTechnicalName + " - " + trans.message.amazonManifest.manifestHeader.warehouseLocationID;
 
-                        var HeaderIdPai = Guid.NewGuid();
-
-                        var header = await _amazonGRU5Processo.Header(trans, HeaderIdPai, nomearquivo, descricao);
-                        var detalhe = await _amazonGRU5Processo.Detalhe(trans, HeaderIdPai);
-
-                        await _geralHeaderService.AddRangeAsync(header);
-                        await _geralDetalheService.AddRangeAsync(detalhe);
+                        await _amazonGRU5Processo.Processa(trans, nomearquivo, descricao);
 
                         return 0;
                     }
@@ -127,10 +120,7 @@ namespace seq.Processo
 
                         var descricao = "SELLERS" + " - " + amazonTechnicalName + " - " + trans.message.amazonManifest.manifestHeader.warehouseLocationID;
 
-                        var HeaderIdPai = Guid.NewGuid();
-
-                        await _geralHeaderService.AddRangeAsync(await _amazonSELLERSProcesso.Header(trans, HeaderIdPai, nomearquivo, descricao));
-                        await _geralDetalheService.AddRangeAsync(await _amazonSELLERSProcesso.Detalhe(trans, HeaderIdPai));
+                        await _amazonSELLERSProcesso.Processa(trans, nomearquivo, descricao);
 
                         return 0;
                     }

@@ -4,28 +4,33 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using seq.Domain.Entities.Sellers;
 using Microsoft.Extensions.Logging;
+using seq.Domain.Interface.Services;
 
 namespace seq.Processo
 {
     public class AmazonSELLERSProcesso : IAmazonSELLERSProcesso
     {
         private readonly ILogger<AmazonSELLERSProcesso> _logger;
-        public AmazonSELLERSProcesso(ILogger<AmazonSELLERSProcesso> logger)
+        private readonly IGeralHeaderService _headerService;
+        private readonly IGeralDetalheService _detalherService;
+
+        public AmazonSELLERSProcesso(ILogger<AmazonSELLERSProcesso> logger, IGeralHeaderService headerService, IGeralDetalheService detalherService)
         {
             _logger = logger;
+            _headerService = headerService;
+            _detalherService = detalherService;
         }
 
-        public async Task<IEnumerable<GeralHeaderModel>> Header(transmission trans, Guid headerIdPai, string nomeArquivo, string descricao)
+        public async Task Processa(transmission trans, string nomeArquivo, string descricao)
         {
             try
             {
-                var lst = new List<GeralHeaderModel>();
 
-                lst.Add( new GeralHeaderModel()
+                var headerId = await _headerService.AddAsync( new GeralHeaderModel()
                 {
+                    RefHeader = 0,
                     Arquivo = nomeArquivo,
                     Linha = 0,
-                    HeaderIdPai = headerIdPai,
                     Descricao = descricao,
                     Campo001 = "receivingPartyID",
                     Campo002 = "sendingPartyID",
@@ -55,11 +60,11 @@ namespace seq.Processo
                     Campo027 = "countryName"
                 });
 
-                lst.Add(new GeralHeaderModel()
+                await _headerService.AddAsync(new GeralHeaderModel()
                 {
+                    RefHeader = headerId,
                     Arquivo = nomeArquivo,
                     Linha = 1,
-                    HeaderIdPai = headerIdPai,
                     Descricao = descricao,
                     Campo001 = trans.receivingPartyID,
                     Campo002 = trans.sendingPartyID,
@@ -71,8 +76,8 @@ namespace seq.Processo
                     Campo008 = trans.message.amazonManifest.manifestHeader.trailerName,
                     Campo009 = trans.message.amazonManifest.manifestHeader.carrierInternalID,
                     Campo010 = trans.message.amazonManifest.manifestHeader.shipmentMethod[0].amazonTechnicalName,
-                    Campo011 = !string.IsNullOrEmpty(trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName) 
-                             ? trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName 
+                    Campo011 = !string.IsNullOrEmpty(trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName)
+                             ? trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName
                              : null,
                     Campo012 = trans.message.amazonManifest.manifestHeader.manifestNumber.ToString(),
                     Campo013 = trans.message.amazonManifest.manifestHeader.carrierAccountID,
@@ -89,31 +94,14 @@ namespace seq.Processo
                     Campo025 = trans.message.amazonManifest.manifestHeader.shipFromAddress.zip.ToString(),
                     Campo026 = trans.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString(),
                     Campo027 = trans.message.amazonManifest.manifestHeader.shipFromAddress.countryName.ToString(),
-            });
+                });
 
-                return lst;
-
-            } catch(Exception e)
-            {
-                _logger.LogError(e.Message, "It seems the exception happened. :(");
-                _logger.LogWarning(e.Message, "This is your last warning!");
-                _logger.LogInformation(e.Message, "And this is fatal error...");
-
-                return null;
-            }
-        }
-
-        public async Task<IEnumerable<GeralDetalheModel>> Detalhe(transmission trans, Guid headerIdPai)
-        {
-
-            try
-            {
-
+          
                 var lst = new List<GeralDetalheModel>();
 
                 lst.Add(new GeralDetalheModel()
                 {
-                    HeaderIdPai = headerIdPai,
+                    HeaderId = headerId,                    
                     Linha = 0,
                     Campo001 = "manifestDetail.customerOrderNumber",
                     Campo002 = "manifestDetail.consigneeAddress.AddressType",
@@ -199,24 +187,24 @@ namespace seq.Processo
                     Campo082 = "manifestDetail.shipmentPackageInfo.shipmentPackageItemDetail.harmonizedTariffDescription",
                     Campo083 = "manifestDetail.shipmentPackageInfo.shipmentPackageItemDetail.countryOfOrigin",
 
-                });
+                }) ;
 
                 lst.Add(new GeralDetalheModel()
                 {
-                    HeaderIdPai = headerIdPai,
+                    HeaderId = headerId,
                     Linha = 1,
                     Campo001 = trans.receivingPartyID,
                     Campo002 = trans.sendingPartyID,
                     Campo003 = string.Format("{0:dd/MM/yyyy}", trans.transmissionCreationDate),
-                    Campo004 = string.Format("{0:0.00#,##}"  , trans.transmissionSchemaVersionNumber),
+                    Campo004 = string.Format("{0:0.00#,##}", trans.transmissionSchemaVersionNumber),
                     Campo005 = trans.message.amazonManifest.manifestHeader.warehouseLocationID,
                     Campo006 = string.Format("{0:dd/MM/yyyy}", trans.message.amazonManifest.manifestHeader.manifestCreateDateTime),
                     Campo007 = trans.message.amazonManifest.manifestHeader.loadReferenceID,
                     Campo008 = trans.message.amazonManifest.manifestHeader.trailerName,
                     Campo009 = trans.message.amazonManifest.manifestHeader.carrierInternalID,
                     Campo010 = trans.message.amazonManifest.manifestHeader.shipmentMethod[0].amazonTechnicalName,
-                    Campo011 = !string.IsNullOrEmpty(trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName) 
-                             ? trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName 
+                    Campo011 = !string.IsNullOrEmpty(trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName)
+                             ? trans.message.amazonManifest.manifestHeader.shipmentMethod[1].amazonTechnicalName
                              : null,
                     Campo012 = trans.message.amazonManifest.manifestHeader.manifestNumber.ToString(),
                     Campo013 = trans.message.amazonManifest.manifestHeader.carrierAccountID,
@@ -233,16 +221,16 @@ namespace seq.Processo
                     Campo025 = trans.message.amazonManifest.manifestHeader.shipFromAddress.zip.ToString(),
                     Campo026 = trans.message.amazonManifest.manifestHeader.shipFromAddress.countryCode.ToString(),
                     Campo027 = trans.message.amazonManifest.manifestHeader.shipFromAddress.countryName.ToString(),
-            });
-                return lst;
+                });
+
+                await _detalherService.AddRangeAsync(lst);
+
             }
             catch (Exception e)
             {
                 _logger.LogError(e.Message, "It seems the exception happened. :(");
                 _logger.LogWarning(e.Message, "This is your last warning!");
                 _logger.LogInformation(e.Message, "And this is fatal error...");
-
-                return null;
             }
         }
                 //public async Task<bool> Processa(string value, string arquivo, string id, string pasta)

@@ -1,6 +1,9 @@
-﻿using seq.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using seq.Domain.Entities;
 using seq.Domain.Interface.Repositories;
 using seq.Infra.Data.Context;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace seq.Infra.Data.Repositories
 {
@@ -9,5 +12,6 @@ namespace seq.Infra.Data.Repositories
         public GeralHeaderRepository(WebDBContext context) : base(context)
         {
         }
+
     }
 }

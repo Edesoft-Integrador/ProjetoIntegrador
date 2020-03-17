@@ -22,10 +22,10 @@ namespace IntegradorApi.Controllers.Amazon
             _logger = logger;
         }
 
-        [HttpGet("AmazonGet")]
-        public IEnumerable<string> AmazonGet()
+        [HttpGet("")]
+        public async Task<IActionResult> AmazonGetAll()
         {
-            return new string[] { "Ivan", "value2" };
+            return Ok(await _context.GetAllAsync());
         }
 
         // GET: api/Amazon/5
@@ -39,7 +39,7 @@ namespace IntegradorApi.Controllers.Amazon
         [HttpPost("AmazonPost")]
         public async Task<IActionResult> AmazonPost(string value)
         {
-            return Ok(_context.ProcessaXML(value));
+            return Ok(await _context.ProcessaXML(value));
         }
 
         [HttpPost("AmazonEmail")]

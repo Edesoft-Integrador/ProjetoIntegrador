@@ -37,6 +37,13 @@ namespace IntegradorApi.Controllers
             return Ok(await _context.SearchTeste(id, Descricao));
         }
 
+
+        [HttpGet("SearchTesteADO")]
+        public async Task<IActionResult> SearchTesteADO(long? id, string Descricao)
+        {
+            return Ok(await _context.SearchTesteADO(id, Descricao));
+        }
+
         // GET: api/Arquivo/5
         [HttpGet("{id}", Name = "ArquivoGet")]
         public string ArquivoGet(int id)

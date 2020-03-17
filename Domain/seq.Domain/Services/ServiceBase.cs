@@ -30,37 +30,37 @@ namespace seq.Domain.Services
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _repository.GetAllAsync().ConfigureAwait(true);
+            return await _repository.GetAllAsync();
         }
 
         public async Task<TEntity> GetByIDAsync(long ID)
         {
-            return await _repository.GetByIDAsync(ID).ConfigureAwait(true);
+            return await _repository.GetByIDAsync(ID);
         }
 
         public async Task RemoveAsync(TEntity obj)
         {
-            await _repository.RemoveAsync(obj).ConfigureAwait(true);
+            await _repository.RemoveAsync(obj);
         }
 
         public async Task UpdateAsync(TEntity obj)
         {
-           await _repository.UpdateAsync(obj).ConfigureAwait(true);
+            await _repository.UpdateAsync(obj);
         }
 
         public async Task<bool> AnyAsync(TEntity obj)
         {
-           return await _repository.AnyAsync(obj).ConfigureAwait(true);
+            return await _repository.AnyAsync(obj);
         }
 
         public async Task AddRangeAsync(IEnumerable<TEntity> obj)
         {
-            await _repository.AddRangeAsync(obj).ConfigureAwait(true);
+            await _repository.AddRangeAsync(obj);
         }
 
         public async Task UpdateRangeAsync(IEnumerable<TEntity> obj)
         {
-            await _repository.UpdateRangeAsync(obj).ConfigureAwait(true);
+            await _repository.UpdateRangeAsync(obj);
 
         }
     }

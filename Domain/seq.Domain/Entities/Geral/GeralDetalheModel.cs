@@ -12,8 +12,12 @@ namespace seq.Domain.Entities
     {
         [Key]
         public long DetalheId { get; set; }
-        public Guid HeaderIdPai { get; set; }
+
+        public long HeaderId { get; set; }
+
         public int Linha { get; set; }
+
+        #region Campos
         public string Campo001 { get; set; }
         public string Campo002 { get; set; }
         public string Campo003 { get; set; }
@@ -154,5 +158,6 @@ namespace seq.Domain.Entities
         public string Campo138 { get; set; }
         public string Campo139 { get; set; }
         public string Campo140 { get; set; }
+        #endregion
     }
 }
