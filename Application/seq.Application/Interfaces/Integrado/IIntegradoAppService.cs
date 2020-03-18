@@ -2,7 +2,7 @@
 
 namespace seq.Application.Interfaces
 {
-    public interface IIntegradoAppService : IAppServiceBase<IntegradoModel>
+    public interface ITipoAppService : IAppServiceBase<TipoModel>
     {
     }
 }

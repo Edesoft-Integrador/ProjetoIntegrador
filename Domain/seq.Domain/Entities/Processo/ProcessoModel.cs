@@ -10,7 +10,7 @@ namespace seq.Domain.Entities
     {
         [Key]
         public long? ProcessoId { get; set;}
-        public long IntegradoId { get; set;}
+        public long TipoId { get; set;}
         
         public long Id { get; set;}
         public long LayoutId { get; set;}

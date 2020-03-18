@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "seq.Infra.CrossCutting.Emai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "seq.Infra.CrossCutting.Logs", "Infra.CrossCutting.Logs\seq.Infra.CrossCutting.Logs.csproj", "{61424B84-1AE0-4478-AD06-1A470D85A905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegradorAPI", "IntegradorAPI\IntegradorAPI.csproj", "{4C630540-3E39-4DCB-941A-7A5E7C6E87DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegradorAPI", "IntegradorAPI\IntegradorAPI.csproj", "{4C630540-3E39-4DCB-941A-7A5E7C6E87DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

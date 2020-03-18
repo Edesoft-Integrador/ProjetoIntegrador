@@ -5,9 +5,9 @@ using seq.Infra.Data.Repositories;
 
 namespace seq.Infra.Data.Repositories
 {
-    public class IntegradoRepository : RepositoryBase<IntegradoModel>, IIntegradoRepository
+    public class TipoRepository : RepositoryBase<TipoModel>, ITipoRepository
     {
-        public IntegradoRepository(WebDBContext context) : base(context)
+        public TipoRepository(WebDBContext context) : base(context)
         {
         }
 

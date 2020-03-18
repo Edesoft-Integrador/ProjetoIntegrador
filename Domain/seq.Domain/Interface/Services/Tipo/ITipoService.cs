@@ -2,7 +2,7 @@
 
 namespace seq.Domain.Interface.Services
 {
-    public interface IIntegradoService : IServiceBase<IntegradoModel>
+    public interface ITipoService : IServiceBase<TipoModel>
     {
     }
 }

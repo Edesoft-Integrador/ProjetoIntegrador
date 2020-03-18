@@ -29,7 +29,7 @@ namespace seq.Infra.CrossCutting.IoC
             services.AddScoped<IDeparaAppService, DeparaAppService>();
             services.AddScoped<ILayoutAppService, LayoutAppService>();
             services.AddScoped<IProcessoAppService, ProcessoAppService>();
-            services.AddScoped<IIntegradoAppService, IntegradoAppService>();
+            services.AddScoped<ITipoAppService, TipoAppService>();
             services.AddScoped<IArquivoAppService, ArquivoAppService>();
 
             services.AddScoped<IAmazonAppService, AmazonAppService>();
@@ -37,7 +37,7 @@ namespace seq.Infra.CrossCutting.IoC
             services.AddScoped<IDeparaService, DeparaService>();
             services.AddScoped<ILayoutService, LayoutService>();
             services.AddScoped<IProcessoService, ProcessoService>();
-            services.AddScoped<IIntegradoService, IntegradoService>();
+            services.AddScoped<ITipoService, TipoService>();
             services.AddScoped<IArquivoService, ArquivoService>();
             services.AddScoped<IGeralHeaderService, GeralHeaderService>();
             services.AddScoped<IGeralDetalheService, GeralDetalheService>();
@@ -45,7 +45,7 @@ namespace seq.Infra.CrossCutting.IoC
             services.AddScoped<IDeparaRepository, DeparaRepository>();
             services.AddScoped<ILayoutRepository, LayoutRepository>();
             services.AddScoped<IProcessoRepository, ProcessoRepository>();
-            services.AddScoped<IIntegradoRepository, IntegradoRepository>();
+            services.AddScoped<ITipoRepository, TipoRepository>();
             services.AddScoped<IArquivorepository, ArquivoRepository>();
             services.AddScoped<IGeralHeaderRepository, GeralHeaderRepository>();
             services.AddScoped<IGeralDetalheRepository, GeralDetalheRepository>();

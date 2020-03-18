@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace seq.Domain.Entities
 {
-    [Table("tb_Integrado_Integrado")]
-    public class IntegradoModel : IBaseMovimentoDb
+    [Table("tb_Integrado_Tipo")]
+    public class TipoModel : IBaseMovimentoDb
     {
         [Key]
-        public long? IntegradoId { get; set;}
+        public long? TipoId { get; set;}
         public string Descricao { get; set;}
         public bool Ativo { get; set;}
         public DateTime? DataAlteracao { get; set;}

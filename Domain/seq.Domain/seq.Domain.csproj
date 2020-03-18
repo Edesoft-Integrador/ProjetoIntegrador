@@ -5,16 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interface\Repositories\Amazon\**" />
+    <EmbeddedResource Remove="Interface\Repositories\Amazon\**" />
+    <None Remove="Interface\Repositories\Amazon\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Entities\Amazon\AmazonSELExpeditedModel.cs" />
     <Compile Remove="Entities\Amazon\AmazonSELStdModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interface\Repositories\Amazon\" />
   </ItemGroup>
 
 </Project>

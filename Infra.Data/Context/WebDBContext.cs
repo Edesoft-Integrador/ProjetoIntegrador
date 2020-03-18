@@ -14,7 +14,7 @@ namespace seq.Infra.Data.Context
         public DbSet<GeralHeaderModel> GeralHeader { get; set; }
         public DbSet<LayoutModel> Layout { get; set; }
         public DbSet<ArquivoModel> Arquivo { get; set; }
-        public DbSet<IntegradoModel> Integrado { get; set; }
+        public DbSet<TipoModel> Tipo { get; set; }
         public DbSet<ProcessoModel> Processo { get; set; }
         public DbSet<DeparaModel> Depara { get; set; }
 

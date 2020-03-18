@@ -6,12 +6,12 @@ using seq.Application.Interfaces;
 
 namespace seq.Application.Services
 {
-    public class IntegradoAppService : AppServiceBase<IntegradoModel>, IIntegradoAppService
+    public class TipoAppService : AppServiceBase<TipoModel>, ITipoAppService
     {
 
-        private readonly IIntegradoService _serviceBase;
+        private readonly ITipoService _serviceBase;
 
-        public IntegradoAppService(IIntegradoService serviceBase) : base(serviceBase)
+        public TipoAppService(ITipoService serviceBase) : base(serviceBase)
         {
             _serviceBase = serviceBase;
         }
