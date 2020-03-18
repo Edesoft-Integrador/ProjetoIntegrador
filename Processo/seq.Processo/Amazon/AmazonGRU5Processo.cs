@@ -28,7 +28,7 @@ namespace seq.Processo
         {
             try
             {
-                var header = new GeralHeaderModel()
+                long headerId = await _headerService.AddAsync(new GeralHeaderModel()
                 {
                     RefHeader = 0,
                     Linha = 0,
@@ -61,9 +61,7 @@ namespace seq.Processo
                     Campo025 = "zip",
                     Campo026 = "countryCode",
                     Campo027 = "countryName"
-                }; //);
-
-                long headerId = await _headerService.AddAsync(header);
+                }); 
 
                 await _headerService.AddAsync(new GeralHeaderModel()
                 {
@@ -289,8 +287,6 @@ namespace seq.Processo
                            Campo082 = y.harmonizedTariffDescription,
                            Campo083 = y.countryOfOrigin,
                        })) ;
-
-                throw new Exception();
 
                 await _detalherService.AddRangeAsync(lst.Union(lst1));
 
