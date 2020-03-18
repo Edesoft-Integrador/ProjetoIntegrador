@@ -12,6 +12,5 @@ namespace seq.Infra.Data.Repositories
         public GeralHeaderRepository(WebDBContext context) : base(context)
         {
         }
-
     }
 }

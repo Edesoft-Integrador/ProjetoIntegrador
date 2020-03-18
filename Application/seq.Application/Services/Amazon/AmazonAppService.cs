@@ -19,7 +19,7 @@ namespace seq.Application.Services
 
         public async Task<int> ProcessaXML(string value)
         {
-           return await _amazonProcessaXML.ProcessaXML(value);
+            return await _amazonProcessaXML.ProcessaXML(value);
         }
     }
 }
