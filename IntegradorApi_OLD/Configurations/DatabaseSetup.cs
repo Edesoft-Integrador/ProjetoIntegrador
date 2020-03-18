@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using seq.Infra.Data.Context;
 using System;
 
-namespace IntegradorAPI.Configurations
+namespace IntegradorApi.Configurations
 {
     public static class DatabaseSetup
     {

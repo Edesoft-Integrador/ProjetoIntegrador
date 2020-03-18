@@ -2,7 +2,7 @@
 using seq.Infra.CrossCutting.IoC;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IntegradorAPI.Configurations
+namespace IntegradorApi.Configurations
 {
     public static class DependencyInjectionSetup
     {
