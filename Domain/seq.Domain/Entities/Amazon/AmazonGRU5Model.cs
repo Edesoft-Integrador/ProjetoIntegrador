@@ -1005,7 +1005,7 @@ namespace seq.Domain.Entities.GRU5
 
         private uint nfeNumberField;
 
-        private byte nfeSerieField;
+        private int nfeSerieField;
 
         private string nfeAccessCodeField;
 
@@ -1061,7 +1061,7 @@ namespace seq.Domain.Entities.GRU5
         }
 
         /// <remarks/>
-        public byte nfeSerie
+        public int nfeSerie
         {
             get
             {
@@ -2655,7 +2655,7 @@ namespace seq.Domain.Entities.GRU5
 
         private string unitOfMeasureField;
 
-        private byte valueField;
+        private int valueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -2673,7 +2673,7 @@ namespace seq.Domain.Entities.GRU5
 
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
-        public byte Value
+        public int Value
         {
             get
             {
@@ -3015,7 +3015,7 @@ namespace seq.Domain.Entities.GRU5
 
         private string unitOfMeasureField;
 
-        private byte valueField;
+        private int valueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -3033,7 +3033,7 @@ namespace seq.Domain.Entities.GRU5
 
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
-        public byte Value
+        public int Value
         {
             get
             {

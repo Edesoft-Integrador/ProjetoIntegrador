@@ -945,7 +945,7 @@ namespace seq.Domain.Entities.Sellers
 
         private uint nfeNumberField;
 
-        private byte nfeSerieField;
+        private uint nfeSerieField;
 
         private string nfeAccessCodeField;
 
@@ -1001,7 +1001,7 @@ namespace seq.Domain.Entities.Sellers
         }
 
         /// <remarks/>
-        public byte nfeSerie
+        public uint nfeSerie
         {
             get
             {
@@ -1861,7 +1861,7 @@ namespace seq.Domain.Entities.Sellers
 
         private string encryptedShipmentIDField;
 
-        private byte packageIDField;
+        private uint packageIDField;
 
         private string trackingIDField;
 
@@ -1892,7 +1892,7 @@ namespace seq.Domain.Entities.Sellers
         }
 
         /// <remarks/>
-        public byte packageID
+        public uint packageID
         {
             get
             {
@@ -2456,7 +2456,7 @@ namespace seq.Domain.Entities.Sellers
 
         private string unitOfMeasureField;
 
-        private byte valueField;
+        private uint valueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -2474,7 +2474,7 @@ namespace seq.Domain.Entities.Sellers
 
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
-        public byte Value
+        public uint Value
         {
             get
             {
@@ -2753,7 +2753,7 @@ namespace seq.Domain.Entities.Sellers
 
         private string unitOfMeasureField;
 
-        private byte valueField;
+        private uint valueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -2771,7 +2771,7 @@ namespace seq.Domain.Entities.Sellers
 
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
-        public byte Value
+        public uint Value
         {
             get
             {
@@ -2884,7 +2884,7 @@ namespace seq.Domain.Entities.Sellers
 
         private string unitOfMeasureField;
 
-        private byte valueField;
+        private uint valueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -2902,7 +2902,7 @@ namespace seq.Domain.Entities.Sellers
 
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
-        public byte Value
+        public uint Value
         {
             get
             {
