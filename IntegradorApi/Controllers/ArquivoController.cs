@@ -45,32 +45,27 @@ namespace IntegradorApi.Controllers
         }
 
         // GET: api/Arquivo/5
-        [HttpGet("{id}", Name = "ArquivoGet")]
+        [HttpGet("{id}")]
         public string ArquivoGet(int id)
         {
             return "value";
         }
 
         // POST: api/Arquivo
-        [HttpPost("Post")]
+        [HttpPost]
         public async Task<IActionResult> Post(ArquivoModel entity)
         {
-            //ArquivoModel arquivoModel = new ArquivoModel()
-            //{
-            //    Descricao = entity.Descricao
-            //};
-
            return Ok(await _context.AddAsync(entity));
         }
 
         // PUT: api/Arquivo/5
-        [HttpPut("ArquivoPut")]
+        [HttpPut]
         public void ArquivoPut(int id, [FromBody] string descricao)
         {
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("ArquivoDelete/{id}")]
+        [HttpDelete("{id}")]
         public void ArquivoDelete(int id)
         {
         }
