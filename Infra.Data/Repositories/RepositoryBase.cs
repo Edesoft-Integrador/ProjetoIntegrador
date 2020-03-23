@@ -57,7 +57,14 @@ namespace seq.Infra.Data.Repositories
 
 
                 await _context.Set<TEntity>().AddAsync(obj);
-                return (long)await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
+
+
+                var keyName = _context.Model.FindEntityType(typeof(TEntity))
+                                            .FindPrimaryKey().Properties
+                                            .Select(x => x.Name).Single();
+
+                return (long)obj.GetType().GetProperty(keyName).GetValue(obj, null);
 
             }
             catch (DbUpdateConcurrencyException)
