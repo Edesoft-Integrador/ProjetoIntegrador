@@ -31,8 +31,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "seq.Infra.CrossCutting.Logs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegradorAPI", "IntegradorAPI\IntegradorAPI.csproj", "{4C630540-3E39-4DCB-941A-7A5E7C6E87DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegradorAPINew", "..\SequoiaIntegradorFrontEnd\IntegradorAPI\IntegradorAPINew\IntegradorAPINew.csproj", "{389CA2FD-8A5E-4A62-AB3F-7BA6156C75F1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,10 +73,6 @@ Global
 		{4C630540-3E39-4DCB-941A-7A5E7C6E87DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C630540-3E39-4DCB-941A-7A5E7C6E87DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C630540-3E39-4DCB-941A-7A5E7C6E87DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{389CA2FD-8A5E-4A62-AB3F-7BA6156C75F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{389CA2FD-8A5E-4A62-AB3F-7BA6156C75F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{389CA2FD-8A5E-4A62-AB3F-7BA6156C75F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{389CA2FD-8A5E-4A62-AB3F-7BA6156C75F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
